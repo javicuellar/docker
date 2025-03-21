@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataFrame en Flask</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles2.css') }}">
+</head>
+<body>
+    <header>
+        <h1>DataFrame en Flask</h1>
+    </header>
+    <div class="container"></div>
+        <br><br>
+        <table border="1">
+            <tr>
+                <th>Nombre</th>
+                <th>Enlace</th>
+            </tr>
+            {% for row in data %}
+            <tr>
+                <!-- <td>{{ row.Nombre }}</td>
+                     <td><a href="{{ row.Enlace }}" target="_blank">{{ row.Enlace }}</a></td>  -->
+                <!--td {% if loop.index == 2 %}class="especial"{% endif %}>{{ row.Nombre }}</td>
+                <td {% if loop.index == 2 %}class="especial"{% endif %}><a href="{{ row.Enlace }}" target="_blank">{{ row.Enlace }}</a></td> -->
+                
+                <td class="derecha {% if loop.index == 2 %}especial{% endif %}">{{ row.Nombre }}</td>
+                <td class="centro {% if loop.index == 2 %}especial{% endif %}"><a href="{{ row.Enlace }}" target="_blank">{{ row.Enlace }}</a></td>   
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

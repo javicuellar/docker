@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartera</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" -->
+</head>
+<body>
+    <header>
+        <h1>Cartera</h1>
+    </header>
+    <div class="container">
+        <form action="{{ url_for('cartera_completa') }}">
+            <button type="submit">Cartera completa</button>
+        </form>
+        <div>
+            {{ total|safe }}
+        </div>
+        <!-- Línea en blanco -->
+        <br><br>
+        <a href="{{ url_for('logout') }}">Cerrar Sesión</a>
+    </div>
+</body>
+</html>

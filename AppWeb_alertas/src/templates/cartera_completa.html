@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartera Completa</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" -->
+</head>
+<body>
+    <header>
+        <h1>Cartera completa</h1>
+    </header>
+    <div class="container">
+        <form action="{{ url_for('activos') }}">
+            <button type="submit">Actualizar</button>
+        </form>
+        <div style="overflow-x: auto;">
+            <table style="width: 700px;"> <!-- Ajusta el ancho según tus necesidades -->
+            {{ acciones|safe }}
+        </div>
+        <!-- Línea en blanco -->
+        <br><br>
+        <div style="overflow-x: auto;">
+            <table style="width: 700px;"> <!-- Ajusta el ancho según tus necesidades -->
+            {{ etfs|safe }}
+        </div>
+        <!-- Línea en blanco -->
+        <br><br>
+        <div style="overflow-x: auto;">
+            <table style="width: 700px;"> <!-- Ajusta el ancho según tus necesidades -->
+            {{ pensiones|safe }}
+        </div>
+        <!-- Línea en blanco -->
+        <br><br>
+        <div style="overflow-x: auto;">
+            <table style="width: 700px;"> <!-- Ajusta el ancho según tus necesidades -->
+            {{ cuentas|safe }}
+        </div>
+        <!-- Línea en blanco -->
+        <br><br>
+        <a href="{{ url_for('logout') }}">Cerrar Sesión</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Activos en cartera</h1>
+    </header>
+    <div class="container">
+        <form action="{{ url_for('activos') }}">
+            <button type="submit">Actualizar</button>
+        </form>
+        <table>
+            <tr>
+                <th>Ticker</th>
+                <th>Ult. valor</th>
+                <th>Valor mes pasado</th>
+                <th>Dif.</th>
+                <th>Porc. dif.</th>
+            </tr>
+            {% for ticker, ult_valor, valor_mes, dif, porc in activos %}
+            <tr>
+                <td>{{ ticker }}</td>
+                <td>{{ ult_valor }}</td>
+                <td>{{ valor_mes }}</td>
+                <td>{{ dif }}</td>
+                <td>{{ porc }}%</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <!-- Línea en blanco -->
+        <br><br>
+        <a href="{{ url_for('logout') }}">Cerrar Sesión</a>
+    </div>
+</body>
+</html>
