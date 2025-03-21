@@ -1,0 +1,6 @@
+Quick Start
+
+* Cogeremos la información de docker_compose_immich.yml para crearlo.
+
+docker compose up -d
+
