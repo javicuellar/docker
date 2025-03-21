@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menú</title>
+</head>
+<body>
+    <h2>Bienvenido, {{ session['usuario'] }}</h2>
+    <a href="/contactos">Contactos</a>
+    <form method="POST" action="/archivos">
+        Directorio: <input type="text" name="directorio"><br>
+        <input type="submit" value="Mostrar Archivos Recientes">
+    </form>
+    <form method="POST" action="/upload" enctype="multipart/form-data">
+        Subir Archivo: <input type="file" name="file"><br>
+        <input type="submit" value="Subir">
+    </form>
+    <a href="/logout">Cerrar Sesión</a>
+    {% if archivos %}
+        <h3>Archivos Modificados Recientemente:</h3>
+        <ul>
+        {% for archivo, fecha in archivos %}
+            <li>{{ archivo }} - Modificado: {{ fecha }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
