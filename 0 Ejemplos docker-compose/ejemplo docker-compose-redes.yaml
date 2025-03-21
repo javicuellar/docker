@@ -1,0 +1,41 @@
+services:
+  database:
+      image: 'postgres:15.1'
+      restart: always
+      volumes:
+        - ./db-data:/var/lib/postgresql/data   
+      
+      #  Indica la red que utilizará el contenedor
+      networks: 
+        - database
+
+    app:
+      build: './application'
+      restart: always
+      depends_on:
+        - database
+        - api
+      env_file: ./application/.env
+      volumes:
+        - './application:/application'
+      
+      # En este caso utiliiza dos redes
+      networks: 
+        - database
+        - backend
+
+    api:
+      build: './api'
+      restart: always
+      env_file: ./api/.env
+      volumes:
+        - './api:/api'
+      networks: 
+        - backend
+
+# Definición de redes, bridge para que los contenedores se comuniquen entre sí
+networks:
+  database: 
+    driver: bridge  
+  backend: 
+    driver: bridge
