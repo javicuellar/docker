@@ -1,0 +1,33 @@
+docker run -d --name=calibre-web -e PUID=1000 -e PGID=1000 -e TZ=Europe/Madrid -e DOCKER_MODS=linuxserver/mods:universal-calibre -e OAUTHLIB_RELAX_TOKEN_SCOPE=1 `#optional` -p 8083:8083 -v /share/DockerData/Calibre-web/config:/config -v /share/Public/Biblioteca:/books --restart always lscr.io/linuxserver/calibre-web:latest
+
+ayuda -> https://mariushosting.com/how-to-install-calibre-on-your-synology-nas/
+
+
+Variables a definir en en NAS Synology
+- TZ=Europe/Madrid
+- PUID=1026                 O  1000 como en el ejemplo de arriba
+- PGID=100                  O  1000 como en el ejemplo e arriba
+
+Puerto a esponer
+- 8091                      O   en el ejemplo de arriba 8083
+
+Definir dos volumenes
+- /Config.- Docker/Config/Calibre_web
+- /books.- donde estén los libros
+
+RED
+- Configurar como host    (no bridge)
+
+
+Para entrar:
+----------------
+
+javicu.synology.me:8083
+
+Usuario.- admin
+Password.- admin123         cambiada a Calibre-web1
+
+
+Ayuda
+- https://manual.calibre-ebook.com/es/search.html?q=ssl#gsc.tab=0&gsc.q=ssl&gsc.page=1
+- https://www.qnapclub.es/showthread.php?tid=3048&page=6
