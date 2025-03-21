@@ -1,0 +1,11 @@
+version: '1'
+services:
+  selenium-standalone-chrome:
+    image: 'selenium/standalone-chrome:latest'
+    container_name: selenium-standalone-chrome  
+    volumes:
+      - /volume1/Python_NAS/AppWeb_alertas:/usr/AppWeb_alertas
+      - /volume1/video:/video
+    ports:
+      - '4444:4444'
+      - '7900:7900'
