@@ -1,11 +1,42 @@
+import imaplib
 import smtplib, ssl
 from email.message import EmailMessage
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
-from email import encoders
+from email import encoders, message_from_bytes
 import os
 
+
+
+#  Lectura de mail de la bandeja de entrada
+def Lectura_mail(user, password, etiqueta, busqueda, contar=False):
+    # Conexión al servidor IMAP de Gmail 
+    mail = imaplib.IMAP4_SSL('imap.gmail.com')
+    mail.login(user, password)
+
+    mail.select(etiqueta) 
+    _, data = mail.search(None, busqueda) 
+
+    if contar:
+        salida = len(data[0].split())
+    else:
+        mensajes = []
+        # Itera sobre los IDs de los correos electrónicos encontrados 
+        for num in data[0].split(): 
+            _, data = mail.fetch(num, '(RFC822)')
+        
+            msg = message_from_bytes(data[0][1]) 
+            print('Asunto:', msg['subject'], '\n   Remitente:', msg['from'])
+            mensajes.append(msg)
+        
+        salida = mensajes
+    
+    # Cierra la conexión 
+    mail.close()
+    mail.logout()
+
+    return salida
 
 
 

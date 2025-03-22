@@ -2,7 +2,12 @@
 
 echo "#################################################"
 echo "Instalando las dependencias necesarias"
-pip install -r requirements.txt  > ./log_install_requerimientos.log
+cd ./AppWeb_alertas
+pip install -r requirements.txt  > ./requirements.log
+
+
+echo "Copiar scripts Herramientas"
+cp -r /usr/python/Herramientas /usr/local/lib/python3.13/site-packages
 
 
 echo "Ejecutando el script de Alertas: CONTROL ACCESO, Madrid Digital y tamaño ficheros"
