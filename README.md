@@ -2,9 +2,9 @@
 ---------------------------------------------------------------------------------
 
 
-Está desactualizado.
-
 ### Proyectos
+
+- [Python] Proyectos Python y para hacer pruebas
 
 - [AppWeb Finanzas + Alertas mail](https://github.com/javicuellar/Python_NAS/tree/master/AppWeb_alertas)
 - [Docker_Flask_SQLite](https://github.com/javicuellar/Python_NAS/tree/master/Docker_Flask_SQLite)

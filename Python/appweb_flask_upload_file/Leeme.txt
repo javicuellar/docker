@@ -1,0 +1,5 @@
+# Aplicación web python Flask
+
+- Con log que va rotando y grabandose en fichero
+- Con dialogo para seleccionar fichero del host y poder cargarlo vía web en el contenedor.
+    Funciona en web desde PC y móvil.

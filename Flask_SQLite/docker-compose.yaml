@@ -1,0 +1,43 @@
+services:
+  appweb_alertas:
+    container_name: 'AppWeb_alertas0.5'
+    # En esta versión pasamos de crearlo por Dockerfile a cratearlo en proyecto con docker-compose
+    
+    # Otra posibilidad es crearlo en un Dockerfile y luego hacer un build
+    # build: './application'
+    
+    # Si no se crea con build, se puede hacer con image
+    image: 'python:latest'
+    
+    # Si es necesario asignar puertos
+    # ports:
+    #  - '5000:5000'
+    
+    volumes:
+      - '/volume1/docker/AppWeb_alertas:/usr/AppWeb_alertas:rw'
+      - '/volume1/video:/video:ro'
+    
+    # Definir el directorio de trabajo
+    working_dir: /usr/AppWeb_alertas
+    
+    # Usamos la red del host
+    network_mode: host
+    
+    # Se puede reiniciar siempre o sólo en caso de error
+    # restart: always
+    restart: on-failure
+
+    # Se pueden definir dependencias entre servicios
+    # depends_on:
+    #    - database
+
+    # Añadir variables de entorno
+    # environment: 
+    #    - PORT=8080
+    #    - DB_USER=user
+    #    - DB_PASS=password
+    #   o incluimos en un archivo .env
+    #env_file: ./application/.env
+
+    # Comando a ejecutar
+    command: "./ejecutar.sh"

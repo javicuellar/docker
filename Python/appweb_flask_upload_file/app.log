@@ -1,0 +1,136 @@
+2025-03-22 12:40:39,217 - DEBUG - app.py - 28 - Inicio de la aplicación
+2025-03-22 12:40:39,217 - DEBUG - app.py - 28 - Inicio de la aplicación
+2025-03-22 12:40:39,610 - INFO - _internal.py - 97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5010
+2025-03-22 12:40:39,610 - INFO - _internal.py - 97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5010
+2025-03-22 12:40:39,610 - INFO - _internal.py - 97 - [33mPress CTRL+C to quit[0m
+2025-03-22 12:40:39,610 - INFO - _internal.py - 97 - [33mPress CTRL+C to quit[0m
+2025-03-22 12:40:39,612 - INFO - _internal.py - 97 -  * Restarting with stat
+2025-03-22 12:40:39,612 - INFO - _internal.py - 97 -  * Restarting with stat
+2025-03-22 12:40:39,875 - DEBUG - app.py - 28 - Inicio de la aplicación
+2025-03-22 12:40:39,875 - DEBUG - app.py - 28 - Inicio de la aplicación
+2025-03-22 12:40:39,909 - WARNING - _internal.py - 97 -  * Debugger is active!
+2025-03-22 12:40:39,909 - WARNING - _internal.py - 97 -  * Debugger is active!
+2025-03-22 12:40:39,949 - INFO - _internal.py - 97 -  * Debugger PIN: 308-309-834
+2025-03-22 12:40:39,949 - INFO - _internal.py - 97 -  * Debugger PIN: 308-309-834
+2025-03-22 12:55:47,384 - INFO - _internal.py - 97 -  * Detected change in '/usr/python/prueba/app.py', reloading
+2025-03-22 12:55:47,384 - INFO - _internal.py - 97 -  * Detected change in '/usr/python/prueba/app.py', reloading
+2025-03-22 12:55:47,861 - INFO - _internal.py - 97 -  * Restarting with stat
+2025-03-22 12:55:47,861 - INFO - _internal.py - 97 -  * Restarting with stat
+2025-03-22 12:55:48,812 - DEBUG - app.py - 28 - Inicio de la aplicación
+2025-03-22 12:55:48,812 - DEBUG - app.py - 28 - Inicio de la aplicación
+2025-03-22 12:55:48,892 - WARNING - _internal.py - 97 -  * Debugger is active!
+2025-03-22 12:55:48,892 - WARNING - _internal.py - 97 -  * Debugger is active!
+2025-03-22 12:55:48,910 - INFO - _internal.py - 97 -  * Debugger PIN: 308-309-834
+2025-03-22 12:55:48,910 - INFO - _internal.py - 97 -  * Debugger PIN: 308-309-834
+2025-03-22 12:59:03,731 - DEBUG - app.py - 28 - Inicio de la aplicación
+2025-03-22 12:59:03,731 - DEBUG - app.py - 28 - Inicio de la aplicación
+2025-03-22 12:59:04,105 - INFO - _internal.py - 97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://192.168.1.41:5010
+2025-03-22 12:59:04,105 - INFO - _internal.py - 97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://192.168.1.41:5010
+2025-03-22 12:59:04,105 - INFO - _internal.py - 97 - [33mPress CTRL+C to quit[0m
+2025-03-22 12:59:04,105 - INFO - _internal.py - 97 - [33mPress CTRL+C to quit[0m
+2025-03-22 12:59:04,168 - INFO - _internal.py - 97 -  * Restarting with stat
+2025-03-22 12:59:04,168 - INFO - _internal.py - 97 -  * Restarting with stat
+2025-03-22 12:59:04,443 - DEBUG - app.py - 28 - Inicio de la aplicación
+2025-03-22 12:59:04,443 - DEBUG - app.py - 28 - Inicio de la aplicación
+2025-03-22 12:59:04,474 - WARNING - _internal.py - 97 -  * Debugger is active!
+2025-03-22 12:59:04,474 - WARNING - _internal.py - 97 -  * Debugger is active!
+2025-03-22 12:59:04,474 - INFO - _internal.py - 97 -  * Debugger PIN: 308-309-834
+2025-03-22 12:59:04,474 - INFO - _internal.py - 97 -  * Debugger PIN: 308-309-834
+2025-03-22 12:59:30,214 - INFO - _internal.py - 97 - 192.168.1.137 - - [22/Mar/2025 12:59:30] "GET / HTTP/1.1" 200 -
+2025-03-22 12:59:30,214 - INFO - _internal.py - 97 - 192.168.1.137 - - [22/Mar/2025 12:59:30] "GET / HTTP/1.1" 200 -
+2025-03-22 12:59:30,485 - INFO - _internal.py - 97 - 192.168.1.137 - - [22/Mar/2025 12:59:30] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-22 12:59:30,485 - INFO - _internal.py - 97 - 192.168.1.137 - - [22/Mar/2025 12:59:30] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-22 13:00:14,056 - INFO - app.py - 58 - Intento de inicio de sesión: Usuario=admin
+2025-03-22 13:00:14,056 - INFO - app.py - 58 - Intento de inicio de sesión: Usuario=admin
+2025-03-22 13:00:14,056 - WARNING - app.py - 64 - Inicio de sesión fallido: Usuario=admin
+2025-03-22 13:00:14,056 - WARNING - app.py - 64 - Inicio de sesión fallido: Usuario=admin
+2025-03-22 13:00:14,057 - INFO - _internal.py - 97 - 192.168.1.137 - - [22/Mar/2025 13:00:14] "POST /login HTTP/1.1" 200 -
+2025-03-22 13:00:14,057 - INFO - _internal.py - 97 - 192.168.1.137 - - [22/Mar/2025 13:00:14] "POST /login HTTP/1.1" 200 -
+2025-03-22 13:00:29,805 - INFO - app.py - 58 - Intento de inicio de sesión: Usuario=javi
+2025-03-22 13:00:29,805 - INFO - app.py - 58 - Intento de inicio de sesión: Usuario=javi
+2025-03-22 13:00:29,806 - WARNING - app.py - 64 - Inicio de sesión fallido: Usuario=javi
+2025-03-22 13:00:29,806 - WARNING - app.py - 64 - Inicio de sesión fallido: Usuario=javi
+2025-03-22 13:00:29,806 - INFO - _internal.py - 97 - 192.168.1.137 - - [22/Mar/2025 13:00:29] "POST /login HTTP/1.1" 200 -
+2025-03-22 13:00:29,806 - INFO - _internal.py - 97 - 192.168.1.137 - - [22/Mar/2025 13:00:29] "POST /login HTTP/1.1" 200 -
+2025-03-22 13:03:39,216 - INFO - app.py - 58 - Intento de inicio de sesión: Usuario=admin
+2025-03-22 13:03:39,216 - INFO - app.py - 58 - Intento de inicio de sesión: Usuario=admin
+2025-03-22 13:03:39,239 - INFO - app.py - 61 - Inicio de sesión exitoso: Usuario=admin
+2025-03-22 13:03:39,239 - INFO - app.py - 61 - Inicio de sesión exitoso: Usuario=admin
+2025-03-22 13:03:39,314 - INFO - _internal.py - 97 - 192.168.1.137 - - [22/Mar/2025 13:03:39] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-03-22 13:03:39,314 - INFO - _internal.py - 97 - 192.168.1.137 - - [22/Mar/2025 13:03:39] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-03-22 13:03:39,605 - INFO - _internal.py - 97 - 192.168.1.137 - - [22/Mar/2025 13:03:39] "GET /menu HTTP/1.1" 200 -
+2025-03-22 13:03:39,605 - INFO - _internal.py - 97 - 192.168.1.137 - - [22/Mar/2025 13:03:39] "GET /menu HTTP/1.1" 200 -
+2025-03-22 13:03:42,247 - INFO - _internal.py - 97 - 192.168.1.137 - - [22/Mar/2025 13:03:42] "POST /archivos HTTP/1.1" 200 -
+2025-03-22 13:03:42,247 - INFO - _internal.py - 97 - 192.168.1.137 - - [22/Mar/2025 13:03:42] "POST /archivos HTTP/1.1" 200 -
+2025-03-22 13:03:45,684 - INFO - _internal.py - 97 - 192.168.1.137 - - [22/Mar/2025 13:03:45] "POST /archivos HTTP/1.1" 200 -
+2025-03-22 13:03:45,684 - INFO - _internal.py - 97 - 192.168.1.137 - - [22/Mar/2025 13:03:45] "POST /archivos HTTP/1.1" 200 -
+2025-03-22 13:03:58,234 - INFO - _internal.py - 97 - 192.168.1.137 - - [22/Mar/2025 13:03:58] "[32mPOST /upload HTTP/1.1[0m" 302 -
+2025-03-22 13:03:58,234 - INFO - _internal.py - 97 - 192.168.1.137 - - [22/Mar/2025 13:03:58] "[32mPOST /upload HTTP/1.1[0m" 302 -
+2025-03-22 13:03:58,241 - INFO - _internal.py - 97 - 192.168.1.137 - - [22/Mar/2025 13:03:58] "GET /menu HTTP/1.1" 200 -
+2025-03-22 13:03:58,241 - INFO - _internal.py - 97 - 192.168.1.137 - - [22/Mar/2025 13:03:58] "GET /menu HTTP/1.1" 200 -
+2025-03-22 13:04:00,787 - INFO - _internal.py - 97 - 192.168.1.137 - - [22/Mar/2025 13:04:00] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-03-22 13:04:00,787 - INFO - _internal.py - 97 - 192.168.1.137 - - [22/Mar/2025 13:04:00] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-03-22 13:04:00,794 - INFO - _internal.py - 97 - 192.168.1.137 - - [22/Mar/2025 13:04:00] "GET / HTTP/1.1" 200 -
+2025-03-22 13:04:00,794 - INFO - _internal.py - 97 - 192.168.1.137 - - [22/Mar/2025 13:04:00] "GET / HTTP/1.1" 200 -
+2025-03-22 13:08:49,616 - INFO - _internal.py - 97 - 79.117.113.205 - - [22/Mar/2025 13:08:49] "GET / HTTP/1.1" 200 -
+2025-03-22 13:08:49,616 - INFO - _internal.py - 97 - 79.117.113.205 - - [22/Mar/2025 13:08:49] "GET / HTTP/1.1" 200 -
+2025-03-22 13:08:49,819 - INFO - _internal.py - 97 - 79.117.113.205 - - [22/Mar/2025 13:08:49] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-22 13:08:49,819 - INFO - _internal.py - 97 - 79.117.113.205 - - [22/Mar/2025 13:08:49] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-03-22 13:09:03,588 - INFO - app.py - 58 - Intento de inicio de sesión: Usuario=Admin
+2025-03-22 13:09:03,588 - INFO - app.py - 58 - Intento de inicio de sesión: Usuario=Admin
+2025-03-22 13:09:03,588 - WARNING - app.py - 64 - Inicio de sesión fallido: Usuario=Admin
+2025-03-22 13:09:03,588 - WARNING - app.py - 64 - Inicio de sesión fallido: Usuario=Admin
+2025-03-22 13:09:03,589 - INFO - _internal.py - 97 - 79.117.113.205 - - [22/Mar/2025 13:09:03] "POST /login HTTP/1.1" 200 -
+2025-03-22 13:09:03,589 - INFO - _internal.py - 97 - 79.117.113.205 - - [22/Mar/2025 13:09:03] "POST /login HTTP/1.1" 200 -
+2025-03-22 13:09:25,102 - INFO - app.py - 58 - Intento de inicio de sesión: Usuario=admin
+2025-03-22 13:09:25,102 - INFO - app.py - 58 - Intento de inicio de sesión: Usuario=admin
+2025-03-22 13:09:25,103 - INFO - app.py - 61 - Inicio de sesión exitoso: Usuario=admin
+2025-03-22 13:09:25,103 - INFO - app.py - 61 - Inicio de sesión exitoso: Usuario=admin
+2025-03-22 13:09:25,480 - INFO - _internal.py - 97 - 79.117.113.205 - - [22/Mar/2025 13:09:25] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-03-22 13:09:25,480 - INFO - _internal.py - 97 - 79.117.113.205 - - [22/Mar/2025 13:09:25] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-03-22 13:09:25,792 - INFO - _internal.py - 97 - 79.117.113.205 - - [22/Mar/2025 13:09:25] "GET /menu HTTP/1.1" 200 -
+2025-03-22 13:09:25,792 - INFO - _internal.py - 97 - 79.117.113.205 - - [22/Mar/2025 13:09:25] "GET /menu HTTP/1.1" 200 -
+2025-03-22 13:09:33,726 - INFO - _internal.py - 97 - 79.117.113.205 - - [22/Mar/2025 13:09:33] "POST /archivos HTTP/1.1" 200 -
+2025-03-22 13:09:33,726 - INFO - _internal.py - 97 - 79.117.113.205 - - [22/Mar/2025 13:09:33] "POST /archivos HTTP/1.1" 200 -
+2025-03-22 13:10:00,465 - INFO - _internal.py - 97 - 79.117.113.205 - - [22/Mar/2025 13:10:00] "[32mPOST /upload HTTP/1.1[0m" 302 -
+2025-03-22 13:10:00,465 - INFO - _internal.py - 97 - 79.117.113.205 - - [22/Mar/2025 13:10:00] "[32mPOST /upload HTTP/1.1[0m" 302 -
+2025-03-22 13:10:00,502 - INFO - _internal.py - 97 - 79.117.113.205 - - [22/Mar/2025 13:10:00] "GET /menu HTTP/1.1" 200 -
+2025-03-22 13:10:00,502 - INFO - _internal.py - 97 - 79.117.113.205 - - [22/Mar/2025 13:10:00] "GET /menu HTTP/1.1" 200 -
+2025-03-22 13:10:32,099 - INFO - _internal.py - 97 - 79.117.113.205 - - [22/Mar/2025 13:10:32] "[32mPOST /upload HTTP/1.1[0m" 302 -
+2025-03-22 13:10:32,099 - INFO - _internal.py - 97 - 79.117.113.205 - - [22/Mar/2025 13:10:32] "[32mPOST /upload HTTP/1.1[0m" 302 -
+2025-03-22 13:10:32,315 - INFO - _internal.py - 97 - 79.117.113.205 - - [22/Mar/2025 13:10:32] "GET /menu HTTP/1.1" 200 -
+2025-03-22 13:10:32,315 - INFO - _internal.py - 97 - 79.117.113.205 - - [22/Mar/2025 13:10:32] "GET /menu HTTP/1.1" 200 -
+2025-03-22 13:32:28,898 - DEBUG - app.py - 28 - Inicio de la aplicación
+2025-03-22 13:32:28,898 - DEBUG - app.py - 28 - Inicio de la aplicación
+2025-03-22 13:32:29,389 - INFO - _internal.py - 97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://192.168.1.41:5010
+2025-03-22 13:32:29,389 - INFO - _internal.py - 97 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://192.168.1.41:5010
+2025-03-22 13:32:29,389 - INFO - _internal.py - 97 - [33mPress CTRL+C to quit[0m
+2025-03-22 13:32:29,389 - INFO - _internal.py - 97 - [33mPress CTRL+C to quit[0m
+2025-03-22 13:32:29,390 - INFO - _internal.py - 97 -  * Restarting with stat
+2025-03-22 13:32:29,390 - INFO - _internal.py - 97 -  * Restarting with stat
+2025-03-22 13:32:29,653 - DEBUG - app.py - 28 - Inicio de la aplicación
+2025-03-22 13:32:29,653 - DEBUG - app.py - 28 - Inicio de la aplicación
+2025-03-22 13:32:29,683 - WARNING - _internal.py - 97 -  * Debugger is active!
+2025-03-22 13:32:29,683 - WARNING - _internal.py - 97 -  * Debugger is active!
+2025-03-22 13:32:29,805 - INFO - _internal.py - 97 -  * Debugger PIN: 517-063-883
+2025-03-22 13:32:29,805 - INFO - _internal.py - 97 -  * Debugger PIN: 517-063-883
+2025-03-22 13:32:59,512 - INFO - _internal.py - 97 - 192.168.1.137 - - [22/Mar/2025 13:32:59] "GET / HTTP/1.1" 200 -
+2025-03-22 13:32:59,512 - INFO - _internal.py - 97 - 192.168.1.137 - - [22/Mar/2025 13:32:59] "GET / HTTP/1.1" 200 -
+2025-03-22 13:33:07,022 - INFO - app.py - 58 - Intento de inicio de sesión: Usuario=admin
+2025-03-22 13:33:07,022 - INFO - app.py - 58 - Intento de inicio de sesión: Usuario=admin
+2025-03-22 13:33:07,022 - INFO - app.py - 61 - Inicio de sesión exitoso: Usuario=admin
+2025-03-22 13:33:07,022 - INFO - app.py - 61 - Inicio de sesión exitoso: Usuario=admin
+2025-03-22 13:33:07,023 - INFO - _internal.py - 97 - 192.168.1.137 - - [22/Mar/2025 13:33:07] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-03-22 13:33:07,023 - INFO - _internal.py - 97 - 192.168.1.137 - - [22/Mar/2025 13:33:07] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-03-22 13:33:07,108 - INFO - _internal.py - 97 - 192.168.1.137 - - [22/Mar/2025 13:33:07] "GET /menu HTTP/1.1" 200 -
+2025-03-22 13:33:07,108 - INFO - _internal.py - 97 - 192.168.1.137 - - [22/Mar/2025 13:33:07] "GET /menu HTTP/1.1" 200 -
+2025-03-22 13:33:12,251 - INFO - _internal.py - 97 - 192.168.1.137 - - [22/Mar/2025 13:33:12] "[32mPOST /upload HTTP/1.1[0m" 302 -
+2025-03-22 13:33:12,251 - INFO - _internal.py - 97 - 192.168.1.137 - - [22/Mar/2025 13:33:12] "[32mPOST /upload HTTP/1.1[0m" 302 -
+2025-03-22 13:33:12,479 - INFO - _internal.py - 97 - 192.168.1.137 - - [22/Mar/2025 13:33:12] "GET /menu HTTP/1.1" 200 -
+2025-03-22 13:33:12,479 - INFO - _internal.py - 97 - 192.168.1.137 - - [22/Mar/2025 13:33:12] "GET /menu HTTP/1.1" 200 -
