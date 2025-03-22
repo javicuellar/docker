@@ -16,6 +16,10 @@
     Y lanza aplicación web AppWeb Finanzas con login y consulta de la cartera.
 
 
-- [Docker_Flask_SQLite](https://github.com/javicuellar/Python_NAS/tree/master/Docker_Flask_SQLite)
+- [appweb_Flask_SQLite](https://github.com/javicuellar/docker/tree/master/Python/appweb_flask_SQLite)
+    Primer proyecto con Flask, con login automático, base de datos SQLite.
+    De este proyecto sale la AppWeb Finanzas
+
+
 - [Docker_Flask_SQLite_HTTPS](https://github.com/javicuellar/Python_NAS/tree/master/Docker_Flask_SQLite_HTTPS)
 - [docker_python_flet](https://github.com/javicuellar/Python_NAS/tree/master/docker_python_flet)
