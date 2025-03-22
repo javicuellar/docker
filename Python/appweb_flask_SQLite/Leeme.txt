@@ -1,0 +1,5 @@
+# Aplicación web python Flask
+
+- Primer ejemplo de aplicación Flask con login creada por la IA Aria
+
+De esta prueba ha salido AppWeb_alertas, la AppWeb de finanzas.
