@@ -2,11 +2,20 @@
 ---------------------------------------------------------------------------------
 
 
+- [Python](https://github.com/javicuellar/docker/tree/master/Python)
+    Proyectos Python y para hacer pruebas
+    Contiene carpetas con los Proyectos.
+
+
 ### Proyectos
 
-- [Python] Proyectos Python y para hacer pruebas
+- [AppWeb Finanzas + Alertas mail](https://github.com/javicuellar/docker/tree/master/Python/AppWeb_alertas)
+    Proyecto de envío de alertas al mail, de CONTROL y de puestos en MD.
+    Y actualiza hoja google sheets, [Archivos Grandes](https://docs.google.com/spreadsheets/d/1ijGA37p8H1onYHNkCOv3Hp2xSxQKZaaSRcCexgLG0eU/edit?gid=0#gid=0), con los videos mayores de 5 Gb.
 
-- [AppWeb Finanzas + Alertas mail](https://github.com/javicuellar/Python_NAS/tree/master/AppWeb_alertas)
+    Y lanza aplicación web AppWeb Finanzas con login y consulta de la cartera.
+
+
 - [Docker_Flask_SQLite](https://github.com/javicuellar/Python_NAS/tree/master/Docker_Flask_SQLite)
 - [Docker_Flask_SQLite_HTTPS](https://github.com/javicuellar/Python_NAS/tree/master/Docker_Flask_SQLite_HTTPS)
 - [docker_python_flet](https://github.com/javicuellar/Python_NAS/tree/master/docker_python_flet)
