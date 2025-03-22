@@ -1,0 +1,7 @@
+# Aplicación web python Flask
+
+- Partiendo del ejemplo anterior de aplicación Flask con login creada por la IA Aria
+La he modificado para que vaya por HTTPS, web segrua.
+
+
+Lo he llevado a la aplicación AppWeb_alertas, la AppWeb de finanzas.
