@@ -1,0 +1,27 @@
+services:
+  calibre-web:
+    container_name: calibre-web
+    
+    image: 'linuxserver/calibre-web:latest'
+    
+    mem_limit: 2g
+    
+    environment:
+      - PUID=1026
+      - PGID=100
+      - TZ=Europe/Madrid
+      - DOCKER_MODS=linuxserver/mods:universal-calibre
+      - OAUTHLIB_RELAX_TOKEN_SCOPE=1
+      - LANGUAGE=es_ES.UTF-8
+      - LANG=es_ES.UTF-8
+    
+    ports:
+      - '8083:8083'
+    
+    network_mode: host
+
+    volumes:
+      - '/volume1/docker/Calibre-Web/config:/config:rw'
+      - '/volume1/Backup/Libros:/books:rw'
+    
+    restart: always
