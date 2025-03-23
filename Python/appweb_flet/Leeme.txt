@@ -1,0 +1,6 @@
+Ejemplo de aplicación Flet
+
+No funciona, da error:
+
+    ModuleNotFoundError: No module named 'flet_desktop'
+
