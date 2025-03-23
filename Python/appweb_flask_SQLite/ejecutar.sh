@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "#################################################"
+echo "############   appweb_flask_SQLite   #############"
 echo "Instalando las dependencias necesarias"
 cd ./appweb_flask_SQLite
 pip install -r ./requirements.txt  > ./requirements.log

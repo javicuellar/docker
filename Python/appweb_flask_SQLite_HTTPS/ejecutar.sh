@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "#################################################"
+echo "############ appweb_flask_SQLite_HTTPS #############"
 echo "Instalando las dependencias necesarias"
 cd ./appweb_flask_SQLite_HTTPS
 pip install -r ./requirements.txt  > ./requirements.log

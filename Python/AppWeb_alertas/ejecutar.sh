@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "#################################################"
+echo "##############    AppWeb_alertas    #############"
 echo "Instalando las dependencias necesarias"
 cd ./AppWeb_alertas
 pip install -r requirements.txt  > ./requirements.log
