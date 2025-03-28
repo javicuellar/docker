@@ -28,3 +28,9 @@
 
 - [appweb_flet](https://github.com/javicuellar/docker/tree/master/Python/appweb_flet)
     Ejemplo de aplicación Flet, no funciona la aplicación web en contenedor.
+
+
+- [Selenium-Chrome](https://github.com/javicuellar/docker/tree/master/Selenium-Chrome)
+    Docker de navegador chrome de selenium para ser usado con python.
+    [Python > selenium-scrapper](https://github.com/javicuellar/docker/tree/master/Python/selenium-scrapper)
+        Pruebas realizadas, funcionan "a veces", no he llegado a hacer que funcionaran siempre.
