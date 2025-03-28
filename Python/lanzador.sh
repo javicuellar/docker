@@ -9,3 +9,5 @@ echo "--------------------------------------------------------------------------
 # ./appweb_flask_SQLite_HTTPS/ejecutar.sh
 
 ./appweb_flet/ejecutar.sh
+
+# ./selenium-scrapper/ejecutar.sh
