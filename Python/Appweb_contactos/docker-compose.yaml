@@ -1,12 +1,13 @@
 services:
-  pruebas_python:
-    container_name: 'Python_pruebas'
+  appweb_alertas:
+    container_name: 'AppWeb_Contactos_0.1'
+    # En esta versión pasamos de crearlo por Dockerfile a cratearlo en proyecto con docker-compose
     
     # Otra posibilidad es crearlo en un Dockerfile y luego hacer un build
     # build: './application'
     
     # Si no se crea con build, se puede hacer con image
-    image: 'python:3.13.2'  # version 21/03/2025
+    image: 'python:3.13.2'
     
     # Si es necesario asignar puertos
     # ports:
@@ -14,7 +15,8 @@ services:
     
     volumes:
       - '/volume1/docker/Python:/usr/python:rw'
-        
+    #   - '/volume1/video:/video:ro'
+    
     # Definir el directorio de trabajo
     working_dir: /usr/python
     
@@ -23,7 +25,7 @@ services:
     
     # Se puede reiniciar siempre o sólo en caso de error
     # restart: always
-    # restart: on-failure
+    restart: on-failure
 
     # Se pueden definir dependencias entre servicios
     # depends_on:
@@ -38,5 +40,4 @@ services:
     #env_file: ./application/.env
 
     # Comando a ejecutar
-    # command: "./lanzador.sh"    
-    command: "./lanzador.sh"
+    command: "./Appweb_contactos/ejecutar.sh"

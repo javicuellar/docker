@@ -1,0 +1,75 @@
+Collecting Flask==3.1.0 (from -r requirements.txt (line 1))
+  Downloading flask-3.1.0-py3-none-any.whl.metadata (2.7 kB)
+Collecting Flask-Login==0.6.3 (from -r requirements.txt (line 2))
+  Downloading Flask_Login-0.6.3-py3-none-any.whl.metadata (5.8 kB)
+Collecting Flask-SQLAlchemy==3.1.1 (from -r requirements.txt (line 3))
+  Downloading flask_sqlalchemy-3.1.1-py3-none-any.whl.metadata (3.4 kB)
+Collecting Flask-Bootstrap==3.3.7.1 (from -r requirements.txt (line 4))
+  Downloading Flask-Bootstrap-3.3.7.1.tar.gz (456 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting Flask-WTF==1.2.2 (from -r requirements.txt (line 5))
+  Downloading flask_wtf-1.2.2-py3-none-any.whl.metadata (3.4 kB)
+Collecting Werkzeug>=3.1 (from Flask==3.1.0->-r requirements.txt (line 1))
+  Downloading werkzeug-3.1.3-py3-none-any.whl.metadata (3.7 kB)
+Collecting Jinja2>=3.1.2 (from Flask==3.1.0->-r requirements.txt (line 1))
+  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting itsdangerous>=2.2 (from Flask==3.1.0->-r requirements.txt (line 1))
+  Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+Collecting click>=8.1.3 (from Flask==3.1.0->-r requirements.txt (line 1))
+  Downloading click-8.1.8-py3-none-any.whl.metadata (2.3 kB)
+Collecting blinker>=1.9 (from Flask==3.1.0->-r requirements.txt (line 1))
+  Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+Collecting sqlalchemy>=2.0.16 (from Flask-SQLAlchemy==3.1.1->-r requirements.txt (line 3))
+  Downloading sqlalchemy-2.0.40-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.6 kB)
+Collecting dominate (from Flask-Bootstrap==3.3.7.1->-r requirements.txt (line 4))
+  Downloading dominate-2.9.1-py2.py3-none-any.whl.metadata (13 kB)
+Collecting visitor (from Flask-Bootstrap==3.3.7.1->-r requirements.txt (line 4))
+  Downloading visitor-0.1.3.tar.gz (3.3 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting wtforms (from Flask-WTF==1.2.2->-r requirements.txt (line 5))
+  Downloading wtforms-3.2.1-py3-none-any.whl.metadata (5.3 kB)
+Collecting MarkupSafe>=2.0 (from Jinja2>=3.1.2->Flask==3.1.0->-r requirements.txt (line 1))
+  Downloading MarkupSafe-3.0.2-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.0 kB)
+Collecting greenlet>=1 (from sqlalchemy>=2.0.16->Flask-SQLAlchemy==3.1.1->-r requirements.txt (line 3))
+  Downloading greenlet-3.2.1-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (4.1 kB)
+Collecting typing-extensions>=4.6.0 (from sqlalchemy>=2.0.16->Flask-SQLAlchemy==3.1.1->-r requirements.txt (line 3))
+  Downloading typing_extensions-4.13.2-py3-none-any.whl.metadata (3.0 kB)
+Downloading flask-3.1.0-py3-none-any.whl (102 kB)
+Downloading Flask_Login-0.6.3-py3-none-any.whl (17 kB)
+Downloading flask_sqlalchemy-3.1.1-py3-none-any.whl (25 kB)
+Downloading flask_wtf-1.2.2-py3-none-any.whl (12 kB)
+Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+Downloading click-8.1.8-py3-none-any.whl (98 kB)
+Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+Downloading sqlalchemy-2.0.40-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.2/3.2 MB 13.2 MB/s eta 0:00:00
+Downloading werkzeug-3.1.3-py3-none-any.whl (224 kB)
+Downloading dominate-2.9.1-py2.py3-none-any.whl (29 kB)
+Downloading wtforms-3.2.1-py3-none-any.whl (152 kB)
+Downloading greenlet-3.2.1-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (606 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 606.8/606.8 kB 1.9 MB/s eta 0:00:00
+Downloading MarkupSafe-3.0.2-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (23 kB)
+Downloading typing_extensions-4.13.2-py3-none-any.whl (45 kB)
+Building wheels for collected packages: Flask-Bootstrap, visitor
+  Building wheel for Flask-Bootstrap (pyproject.toml): started
+  Building wheel for Flask-Bootstrap (pyproject.toml): finished with status 'done'
+  Created wheel for Flask-Bootstrap: filename=flask_bootstrap-3.3.7.1-py3-none-any.whl size=460169 sha256=cc9016a93cd60d432ef93b1d1b36fae9e4e516d4c9fcb7a9f2920610ad30b542
+  Stored in directory: /root/.cache/pip/wheels/a5/b5/bc/930e4bed62bc6a93acd3883ce94b572014df09b164a0af150c
+  Building wheel for visitor (pyproject.toml): started
+  Building wheel for visitor (pyproject.toml): finished with status 'done'
+  Created wheel for visitor: filename=visitor-0.1.3-py3-none-any.whl size=3999 sha256=a0c35b56e6773085a3cabedad79ed4acb94c96343d3a0bf137123326bbc2fdc0
+  Stored in directory: /root/.cache/pip/wheels/1f/7a/08/da6543916a156ecebde51a3259ec914a4cefdec14e6ae44a07
+Successfully built Flask-Bootstrap visitor
+Installing collected packages: visitor, typing-extensions, MarkupSafe, itsdangerous, greenlet, dominate, click, blinker, wtforms, Werkzeug, sqlalchemy, Jinja2, Flask, Flask-WTF, Flask-SQLAlchemy, Flask-Login, Flask-Bootstrap
+Successfully installed Flask-3.1.0 Flask-Bootstrap-3.3.7.1 Flask-Login-0.6.3 Flask-SQLAlchemy-3.1.1 Flask-WTF-1.2.2 Jinja2-3.1.6 MarkupSafe-3.0.2 Werkzeug-3.1.3 blinker-1.9.0 click-8.1.8 dominate-2.9.1 greenlet-3.2.1 itsdangerous-2.2.0 sqlalchemy-2.0.40 typing-extensions-4.13.2 visitor-0.1.3 wtforms-3.2.1
