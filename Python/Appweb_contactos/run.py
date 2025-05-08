@@ -7,8 +7,11 @@ from app.app import db
 
 
 if __name__ == "__main__":
-    with aplicacion.app_context():
-        db.create_all()
+    try:
+        with aplicacion.app_context():
+            db.create_all()
+    except Exception as e:
+        print(f"Error occurred: {e}")
         
     if os.name == 'nt':
         aplicacion.run(port=5010)
