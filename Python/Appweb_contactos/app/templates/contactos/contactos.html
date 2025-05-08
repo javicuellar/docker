@@ -25,6 +25,14 @@
         <a class="btn btn-primary" href="{{url_for('contactos_new')}}" role="button">Nuevo contacto</a>
       {% endif %}
     <br/>
+
+    <form method="POST" action="/subir" enctype="multipart/form-data">
+      <br/>
+      <input type="file" name="archivo" required>
+      <br/>
+      <button type="submit">Cargar archivo</button>
+    </form>
+  
   </div>
 
   <div class="col-md-10">

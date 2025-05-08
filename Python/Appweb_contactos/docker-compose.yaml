@@ -1,7 +1,8 @@
 services:
   appweb_alertas:
-    container_name: 'AppWeb_Contactos_0.1'
-    # En esta versión pasamos de crearlo por Dockerfile a cratearlo en proyecto con docker-compose
+    container_name: 'AppWeb_Contactos_0.2'
+    #  Versión: 0.2 - Incorporamos las alertas en ejecutar.sh
+    #  Versión: 0.1 - pasamos de crearlo por Dockerfile a cratearlo en proyecto con docker-compose
     
     # Otra posibilidad es crearlo en un Dockerfile y luego hacer un build
     # build: './application'
@@ -9,13 +10,13 @@ services:
     # Si no se crea con build, se puede hacer con image
     image: 'python:3.13.2'
     
-    # Si es necesario asignar puertos
+    # Si es necesario asignar puertos (al tener red host no es necesario)
     # ports:
     #  - '5000:5000'
     
     volumes:
       - '/volume1/docker/Python:/usr/python:rw'
-    #   - '/volume1/video:/video:ro'
+      - '/volume1/video:/video:ro'
     
     # Definir el directorio de trabajo
     working_dir: /usr/python

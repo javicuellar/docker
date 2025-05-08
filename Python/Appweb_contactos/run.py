@@ -1,12 +1,15 @@
 import os
 from app.app import app as aplicacion
-
+from app.app import db
 
 
 
 
 
 if __name__ == "__main__":
+    with aplicacion.app_context():
+        db.create_all()
+        
     if os.name == 'nt':
         aplicacion.run(port=5010)
     else:

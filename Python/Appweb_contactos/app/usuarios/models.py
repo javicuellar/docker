@@ -1,6 +1,5 @@
-from sqlalchemy import Boolean, Column , ForeignKey
-from sqlalchemy import DateTime, Integer, String, Text, Float
-from sqlalchemy.orm import relationship
+from sqlalchemy import Boolean, Column
+from sqlalchemy import Integer, String
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from app.app import db
@@ -48,32 +47,3 @@ class Usuarios(db.Model):
 
 	def is_admin(self):
 		return self.admin
-
-
-
-class Etiquetas(db.Model):
-	"""Etiquetas de los contactos"""
-	__tablename__ = 'etiquetas'
-	id = Column(Integer, primary_key=True)
-	nombre = Column(String(100))
-	contactos = relationship("Contactos", cascade="all, delete-orphan", backref="Contactos",lazy='dynamic')
-
-
-	def __repr__(self):
-		return (u'<{self.__class__.__name__}: {self.id}>'.format(self=self))
-
-
-
-class Contactos(db.Model):
-	"""Contactos"""
-	__tablename__ = 'contactos'
-	id = Column(Integer, primary_key=True)
-	nombre = Column(String(100),nullable=False)
-	apellidos = Column(String(100),nullable=False)
-	notas = Column(String(255))
-	EtiquetaId = Column(Integer,ForeignKey('etiquetas.id'), nullable=True)
-	etiqueta = relationship("Etiquetas", backref="Contactos")
-
-
-	def __repr__(self):
-		return (u'<{self.__class__.__name__}: {self.id}>'.format(self=self))
