@@ -11,6 +11,7 @@
 
 
 Proyecto que inicialmente será la gestión de Contactos.
+Backup NAS en carpeta Home.
 
 
 ### Referenicas, recursos de ayuda

@@ -58,4 +58,4 @@ def registro():
 			db.session.commit()
 			return redirect(url_for("contactos"))
 		form.username.errors.append("Nombre de usuario ya existe.")
-	return render_template("usuarios/usuarios_new.html",form=form)
+	return render_template("usuarios/registro.html",form=form)

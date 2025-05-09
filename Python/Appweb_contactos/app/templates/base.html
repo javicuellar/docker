@@ -3,7 +3,7 @@
 {% block navbar %}
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
+      <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -30,23 +30,17 @@
 
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-        <h1>Mantenimiento de Contactos</h1>
-        <p>Administra tus contactos de manera eficiente en nuestra página web.</p>        
+    <div class="jumbotron jumbotron-fluid" style="height: 150px;">
+      <div class="container-fluid">
+        <h3><strong>Manenimiento de Contactos</strong></h3>
+        <h4>Administra tus contactos de manera eficiente en nuestra página web.</h4>      
       </div>
     </div>
 
 {% endblock %}
 
 {% block content %}
-<div class="container-fluid">
-  <div class="row">
   	
-  	<div class="container">
-	    {% block contenido %}{% endblock %}
-  	</div>
-  
-</div>
-    
+{% block contenido %}{% endblock %} 
+
 {% endblock %}

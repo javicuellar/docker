@@ -4,46 +4,48 @@
 
 {% block contenido %}
 
-<div class="container">
-  <div class="row">
+<div class="container-fluid">
 
     <div class="col-md-2">
-    <h3>Etiquetas...</h3>  
-    <div class="list-group">
+      <h4><strong>Etiquetas</strong></h4>  
+      <div class="list-group">
       
-      {% for eti in etiquetas %}
-        {% if etiqueta.nombre==eti.nombre %}
-          <a class="list-group-item active" href="{{url_for("contactos",id=eti.id)}}">{{eti.nombre}}</a>
-        {% else %}
+        {% for eti in etiquetas %}
+          {% if etiqueta.nombre==eti.nombre %}
+            <a class="list-group-item active" href="{{url_for("contactos",id=eti.id)}}">{{eti.nombre}}</a>
+          {% else %}
           <a class="list-group-item" href="{{url_for("contactos",id=eti.id)}}">{{eti.nombre}}</a>
-        {% endif %}
-      {% endfor %}
+          {% endif %}
+        {% endfor %}
       
-    </div>
-    <br/>
+      </div>
+      <br/>
       {% if current_user.is_authenticated and current_user.is_admin() %}
         <a class="btn btn-primary" href="{{url_for('contactos_new')}}" role="button">Nuevo contacto</a>
       {% endif %}
-    <br/>
-
-    <form method="POST" action="/subir" enctype="multipart/form-data">
       <br/>
-      <input type="file" name="archivo" required>
-      <br/>
-      <button type="submit">Cargar archivo</button>
-    </form>
-  
-  </div>
 
-  <div class="col-md-10">
-	    <h3>Contactos ... ({{etiqueta.nombre}})</h3>
-	    <div class="panel panel-default">
-  			
+      <form method="POST" action="/subir" enctype="multipart/form-data">
+        <br/>
+        <input type="file" name="archivo" required>
+        <br/>
+        <button type="submit">Cargar archivo</button>
+      </form>
+    </div>
+
+    <div class="col-md-10">
+	    <h4><strong>Contactos   
+        {% if etiqueta.nombre is defined %} 
+          <b> - {{etiqueta.nombre}} </b>
+        {% endif %} 
+      </strong></h4>
+	    
+      <div class="panel panel-default"> 			
         <table class="table table-bordered">
           <tr>
-            <th>Nombre</th>
-            <th>Apellidos</th>
-            <th>Notas</th>
+            <th style="width:25%">Nombre</th>
+            <th style="width:30%">Apellidos</th>
+            <th style="width:45%">Notas</th>
             
             {% if current_user.is_authenticated and current_user.is_admin()  %}
               <th>Modificar</th>
@@ -63,15 +65,11 @@
                   <td><a href="{{url_for('contactos_delete',id=cont.id)}}"><span class="glyphicon glyphicon-trash"></span> Borrar</a></td>
                 {% endif %}   
                 
-  	    			</tr>
-  	    	
             {% endfor %}
-
-          </table>
-  	    
-  	</div>
-  </div>
-
+          </tr>
+        </table>	    
+  	  </div>
+    </div>
 </div>
  	
 {% endblock %}

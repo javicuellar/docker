@@ -1,0 +1,37 @@
+# Excluimos ficheros
+
+#  archivos __pycache__
+**/__pycache__
+
+# excluimos ficheros comprimidos (backups)
+*.7z
+
+# excluyo video-duplicate-finder por fallar al subirlo
+video-duplicate-finder
+
+# firltramos credenciales
+**/credenciales.json
+
+# Ficheros log de sincronización PC a NAS
+**/*.log
+
+#  archivos __pycache__
+**/__pycache__
+
+# variables de entorno
+**.env
+**/env
+**/venv
+
+# Instancias (directorio personal)
+**instancias
+
+# Base de datos SQLite
+**db.sqlite3
+dbase.db
+**sincro*.bat
+
+# cerificados y claves privadas
+**.pem
+**/*.pem
+**/*.key

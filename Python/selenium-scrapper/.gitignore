@@ -1,0 +1,14 @@
+# filtramos varialbes de entorno
+*.env
+
+# filtramos certificados
+*.pem
+
+# Certificado Google
+*.json
+
+#  archivos __pycache__
+**/__pycache__
+
+#  Archivos de salida
+**/*.xlsx
