@@ -4,9 +4,11 @@ from dotenv import load_dotenv
 
 
 if os.name == 'nt':
-    load_dotenv('\\Python\\config.env')
+    ruta = '\\Python\\'
 else:
-    load_dotenv('./config.env')
+    ruta = '/usr/python/'
+
+load_dotenv(ruta +'config.env')
 
 USUARIO = os.getenv("USER_MAIL")
 PASSWORD = os.getenv("PASSWORD_MAIL")
