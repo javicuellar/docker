@@ -1,27 +1,19 @@
+#  Servicio Calibre-web
 services:
   calibre-web:
     container_name: multimedia-calibreweb
-    
     image: 'linuxserver/calibre-web:latest'
-    
-    mem_limit: 2g
-    
-    environment:
-      - PUID=1026
-      - PGID=100
-      - TZ=Europe/Madrid
-      - DOCKER_MODS=linuxserver/mods:universal-calibre
-      - OAUTHLIB_RELAX_TOKEN_SCOPE=1
-      - LANGUAGE=es_ES.UTF-8
-      - LANG=es_ES.UTF-8
-    
-    ports:
-      - '8083:8083'
-    
-    network_mode: host
-
+    restart: always
     volumes:
       - ./config:/config:rw'
-      - /volume1/libros:/books:rw'
-    
-    restart: always
+      - /volume2/libros:/books:rw'
+    env_file:
+      - /volume1/docker/docker/synology.env                     # variables synology (PUID, PGID, TZ)
+    #  Variables calibre-web
+    environment:
+      - DOCKER_MODS=linuxserver/mods:universal-calibre
+      - OAUTHLIB_RELAX_TOKEN_SCOPE=1
+    mem_limit: 2g
+    ports:
+      - '8083:8083'
+    # network_mode: host
