@@ -6,11 +6,11 @@ Repositorio con las definiciones **docker-compose** de los servicios desplegados
 
 ```
 docker/
-├── synology.env              # Variables comunes del NAS (PUID, PGID, TZ, idioma)
-├── multimedia/                # Servicios de gestión y consumo multimedia
+├── synology.env                    # Variables comunes del NAS (PUID, PGID, TZ, idioma)
+├── multimedia/                     # Servicios de gestión y consumo multimedia
 │   ├── calibreweb/
 │   └── calibreweb-automated/
-└── utilidades/                 # Herramientas de soporte y utilidades generales
+└── utilidades/                     # Herramientas de soporte y utilidades generales
     ├── duplicati/
     └── nametag/
 ```
