@@ -1,0 +1,57 @@
+#  Servicio Nametag    (aplicación de etiquetas de Contactos)
+services:
+  db:
+    container_name: Nametag_DB
+    image: postgres:18-alpine
+    volumes:
+      - ./db:/var/lib/postgresql:rw
+    restart: on-failure:5
+    env_file:
+      - /volume1/docker/docker/utilidades/nametag-db.env          # variables privadas
+    hostname: nametag-db
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD", "pg_isready", "-q", "-d", "nametag_db", "-U", "nametaguser"]
+      timeout: 45s
+      interval: 10s
+      retries: 10
+
+  redis:
+    container_name: Nametag_REDIS
+    image: redis:8-alpine
+    volumes:
+      - ./redis:/data:rw
+    restart: on-failure:5
+    env_file:
+      - /volume1/docker/docker/utilidades/nametag-redis.env          # variables privadas
+    healthcheck:
+     test: ["CMD-SHELL", "redis-cli ping || exit 1"]
+    command: sh -c 'exec redis-server --requirepass "$$REDIS_PASSWORD"'
+
+  nametag:
+    container_name: Nametag_APP
+    image: ghcr.io/mattogodoy/nametag:latest
+    restart: on-failure:5
+    env_file:
+      - /volume1/docker/docker/utilidades/nametag.env           # variables privadas
+    user: 0:0
+    ports:
+      - 3753:3000
+    depends_on:
+      - db
+      - redis
+
+  cron:
+    container_name: Nametag_CRON
+    image: alpine:3.19
+    restart: on-failure:5
+    env_file:
+      - /volume1/docker/docker/utilidades/nametag-cron.env      # variables privadas
+    command: >
+      sh -c "
+        echo '0 8 * * * wget -q -O - --header=\"Authorization: Bearer '\"$$CRON_SECRET\"'\" http://app:3000/api/cron/send-reminders > /proc/1/fd/1 2>&1' > /etc/crontabs/root &&
+        crond -f -l 2
+      "
+    depends_on:
+      - nametag

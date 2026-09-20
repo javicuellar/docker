@@ -1,0 +1,7 @@
+# filtramos ficheros
+*.txt
+
+# filtramos información directorios
+/config/*
+/backups/*
+/source/*

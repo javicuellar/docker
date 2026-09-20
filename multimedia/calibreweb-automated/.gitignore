@@ -1,0 +1,8 @@
+# filtramos ficheros
+*.txt
+
+# filtramos información directorios
+/config/*
+/libreria/*
+/plugins/*
+/watch/*

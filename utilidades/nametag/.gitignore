@@ -1,0 +1,6 @@
+# filtramos ficheros
+*.txt
+
+# filtramos información directorios
+/db/*
+/redis/*

@@ -1,0 +1,20 @@
+#  Servicio Duplicati    (copias de seguridad)
+services:
+  duplicati:
+    container_name: utilidades-duplicati
+    image: lscr.io/linuxserver/duplicati:latest
+    volumes:
+      - ./config:/config
+      - ./backups:/backups
+      - ./source:/source
+    restart: unless-stopped
+    ports:
+      - 8200:8200
+    env_file:
+      - /volume1/docker/docker/synology.env                     # variables synology (PUID, PGID, TZ)
+      - /volume1/docker/docker/utilidades/duplicati.env         # variables privadas
+
+
+#   Password -> changeme
+
+#   Prueba1 ->  password => 35)oe)jX72N.0kR$
