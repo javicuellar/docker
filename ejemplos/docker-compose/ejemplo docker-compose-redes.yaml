@@ -9,29 +9,29 @@ services:
       networks: 
         - database
 
-    app:
-      build: './application'
-      restart: always
-      depends_on:
-        - database
-        - api
-      env_file: ./application/.env
-      volumes:
-        - './application:/application'
+  app:
+    build: './application'
+    restart: always
+    depends_on:
+      - database
+      - api
+    env_file: ./application/.env
+    volumes:
+      - './application:/application'
       
-      # En este caso utiliiza dos redes
-      networks: 
-        - database
-        - backend
+    # En este caso utiliiza dos redes
+    networks: 
+      - database
+      - backend
 
-    api:
-      build: './api'
-      restart: always
-      env_file: ./api/.env
-      volumes:
-        - './api:/api'
-      networks: 
-        - backend
+  api:
+    build: './api'
+    restart: always
+    env_file: ./api/.env
+    volumes:
+      - './api:/api'
+    networks: 
+      - backend
 
 # Definición de redes, bridge para que los contenedores se comuniquen entre sí
 networks:
