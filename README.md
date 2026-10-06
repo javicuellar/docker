@@ -9,7 +9,9 @@ docker/
 ├── synology.env                    # Variables comunes del NAS (PUID, PGID, TZ, idioma)
 ├── multimedia/                     # Servicios de gestión y consumo multimedia
 │   ├── calibreweb/
-│   └── calibreweb-automated/
+│   ├── calibreweb-automated/
+│   ├── jellyfin/
+│   └── plex/
 └── utilidades/                     # Herramientas de soporte y utilidades generales
     ├── duplicati/
     └── nametag/
@@ -29,6 +31,8 @@ Cada carpeta de proyecto sigue el mismo patrón:
 |---|---|---|---|---|
 | [calibreweb](multimedia/calibreweb/) | Multimedia | `linuxserver/calibre-web` | 8083 | Servidor web de biblioteca de libros Calibre. |
 | [calibreweb-automated](multimedia/calibreweb-automated/) | Multimedia | `crocodilestick/calibre-web-automated` | 8083 | Calibre-Web con ingesta automática: los libros depositados en `watch` se procesan y añaden solos a la biblioteca. |
+| [jellyfin](multimedia/jellyfin/) | Multimedia | `linuxserver/jellyfin` | 8096 | Servidor multimedia libre para películas, series y música, con transcodificación por hardware Intel Quick Sync. |
+| [plex](multimedia/plex/) | Multimedia | `linuxserver/plex` | 32400 (host) | Servidor multimedia Plex sobre la videoteca del NAS, con transcodificación por hardware. |
 | [duplicati](utilidades/duplicati/) | Utilidades | `linuxserver/duplicati` | 8200 | Copias de seguridad programadas de las carpetas indicadas en `source`. |
 | [nametag](utilidades/nametag/) | Utilidades | `mattogodoy/nametag` + `postgres` + `redis` | 3753 | Aplicación de etiquetado de contactos, con base de datos PostgreSQL, caché Redis y tarea cron de recordatorios diarios. |
 
@@ -44,6 +48,23 @@ Evolución de Calibre-Web que añade ingesta automática de libros: cualquier fi
 - `watch/`: carpeta de entrada (ingest); los ficheros se eliminan tras procesarse.
 - `libreria/`: biblioteca Calibre resultante.
 - `plugins/`: plugins de Calibre opcionales.
+
+### 🎬 [multimedia/jellyfin](multimedia/jellyfin/)
+Servidor multimedia de código abierto. Expone la interfaz web en el puerto 8096 y usa la GPU Intel (`/dev/dri`) para transcodificación por hardware, con el mod `jellyfin-opencl-intel` para tone mapping vía OpenCL.
+
+- `config/`: configuración, metadatos y base de datos de Jellyfin.
+- Bibliotecas montadas en `/data`:
+  - `/volume2/video/peliculas` → `/data/peliculas`
+  - `/volume2/video/series` → `/data/series`
+  - `/volume2/music` → `/data/musica`
+- `pruebas/`: variantes del `docker-compose.yaml` usadas durante las pruebas de configuración.
+
+### 🎞️ [multimedia/plex](multimedia/plex/)
+Servidor multimedia Plex. Funciona en `network_mode: host` (interfaz web en `http://<nas>:32400/web`) para facilitar el descubrimiento DLNA/GDM en la red local, y usa `/dev/dri` para transcodificación por hardware (requiere Plex Pass).
+
+- `config/`: configuración y base de datos de Plex.
+- `/volume2/video` → `/movies`: videoteca del NAS.
+- `docker-compose (anterior).yaml`: versión previa del compose, conservada como referencia.
 
 ### 💾 [utilidades/duplicati](utilidades/duplicati/)
 Herramienta de copias de seguridad cifradas y programadas.
