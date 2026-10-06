@@ -1,0 +1,19 @@
+version: '3.5'
+services:
+  jellyfin:
+    image: jellyfin/jellyfin:latest
+    container_name: jellyfin3
+    environment:
+      - PUID=1026            #CHANGE_TO_YOUR_UID
+      - PGID=100            #CHANGE_TO_YOUR_PID
+      - TZ=Europe/Madrid    #CHANGE_TO_YOUR_TZ
+#      - JELLYFIN_PublishedServerUrl=javicu.synology.me
+#      - DOCKER_MODS=linuxserver/mods:jellyfin-opencl-intel
+    volumes:
+       - /volume1/docker/jellyfin/config:/config
+       - /volume1/video/Películas:/data/peliculas:ro
+    network_mode: host
+#    devices:
+#      - /dev/dri/renderD128:/dev/dri/renderD128
+#      - /dev/dri/card0:/dev/dri/card0
+    restart: unless-stopped

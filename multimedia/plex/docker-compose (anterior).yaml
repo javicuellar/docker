@@ -1,0 +1,17 @@
+services:
+  linuxserver:
+    container_name: multimedia-plex
+    image: 'ghcr.io/linuxserver/plex:latest'
+    environment:
+      - PUID=1026
+      - PGID=100
+      - TZ=Europe/Madrid
+      - VERSION=docker
+    volumes:
+      - ./config:/config
+      - /volume2/video:/movies
+      #- '/volume2/video:/tv'
+    devices:
+      - '/dev/dri:/dev/dri'
+    restart: always
+    network_mode: host

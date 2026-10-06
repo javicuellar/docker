@@ -1,0 +1,16 @@
+services:
+  jellyfin:
+    image: 'jellyfin/jellyfin:latest'
+    volumes:
+      - ./config:/config'
+      - ./cache:/cache'
+      #- ./media:/media'
+      - /volume1/video/Películas:/data/peliculas:ro
+      - /volume1/video/Serie:/data/series:ro
+      - /volume1/Backup/Libros:/data/libros:ro
+      - /volume1/music:/data/musica:ro
+    devices:
+      - /dev/dri/renderD128:/dev/dri/renderD128
+      - /dev/dri/card0:/dev/dri/card0
+      - /dev/dri:/dev/dri      # Intel Quicksync (Aceleración por hardware)
+    network_mode: host

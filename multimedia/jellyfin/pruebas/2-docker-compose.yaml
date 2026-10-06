@@ -1,0 +1,28 @@
+#  Cogido para transcodificación de: https://www.reddit.com/r/synology/comments/1f303tj/jellyfin_with_hw_transcoding
+services:
+  jellyfin:
+    image: linuxserver/jellyfin:latest
+    container_name: jellyfin_linuxserver2
+    environment:
+      - PUID=1026           #CHANGE_TO_YOUR_UID
+      - PGID=100            #CHANGE_TO_YOUR_PID
+      - TZ=Europe/Madrid    #CHANGE_TO_YOUR_TZ
+      - LANGUAGE=es_ES.UTF-8
+      - LANG=es_ES.UTF-8
+#      - JELLYFIN_PublishedServerUrl=javicu.synology.me
+      - DOCKER_MODS=linuxserver/mods:jellyfin-opencl-intel
+    volumes:
+       - /volume1/docker/jellyfin/config:/config
+       - /volume1/video/Películas:/data/peliculas:ro
+       - /volume1/video/Serie:/data/series:ro
+       - /volume1/Backup/Libros:/data/libros:ro
+       - /volume1/music:/data/musica:ro
+    devices:
+      - /dev/dri/renderD128:/dev/dri/renderD128
+      - /dev/dri/card0:/dev/dri/card0
+    network_mode: host
+#    ports:
+#      - 8096:8096
+#    security_opt:
+#      - no-new-privileges:true
+    restart: unless-stopped

@@ -1,0 +1,5 @@
+# filtramos ficheros
+*.txt
+
+# filtramos config
+/config/*

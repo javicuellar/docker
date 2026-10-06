@@ -1,0 +1,23 @@
+#  Servicio jellyfin - servidor multimedia
+services:
+  jellyfin:
+    container_name: multimedia-jellyfin
+    image: linuxserver/jellyfin
+    restart: unless-stopped
+    volumes:
+       - ./config:/config
+       - /volume2/video/peliculas:/data/peliculas:rw
+       - /volume2/video/series:/data/series:rw
+       - /volume2/music:/data/musica:rw
+    env_file:
+      - /volume1/docker/docker/synology.env                     # variables synology (PUID, PGID, TZ)
+    #  Variables Jellyfin
+    environment:
+      # - JELLYFIN_PublishedServerUrl=javicu.synology.me
+      - DOCKER_MODS=linuxserver/mods:jellyfin-opencl-intel
+    devices:
+      - /dev/dri/renderD128:/dev/dri/renderD128
+      - /dev/dri/card0:/dev/dri/card0
+      - /dev/dri:/dev/dri               # Intel Quicksync (Aceleración por hardware)
+    ports:
+      - 8096:8096
