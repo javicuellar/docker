@@ -1,0 +1,15 @@
+#  Servicio multimedia TinyMediaManager para gestión de metadatos de películas y series
+version: '3'
+services:
+  tinymediamanager:
+    container_name: multimedia-tinymediamanager
+    image: 'romancin/tinymediamanager:latest-v4'
+    volumes:
+      - ./config:/config
+      - /volume2/video/peliculas/clara:/media
+    env_file:
+      - ./.env
+      - /volume1/docker/docker/synology.env                     # variables synology (PUID, PGID, TZ)
+    ports:
+      - '5800:5800'
+      - '5900:5900'
