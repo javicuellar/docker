@@ -1,0 +1,11 @@
+# filtramos ficheros
+*.txt
+
+# filtramos config
+/jackett/*
+/jellyfin/*
+/plex/*
+/prowlarr/*
+/qbittorrent/*
+/radarr/*
+/sonarr/*

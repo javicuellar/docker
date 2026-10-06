@@ -1,0 +1,125 @@
+#  Servicio completo Multimedia con agentes de descarga, indexadores y servidores de streaming
+services:
+  qbittorrent:
+  # Gestores de Descargas (Torrent)
+    container_name: qbittorrent
+    image: lscr.io/linuxserver/qbittorrent:latest
+    hostname: qbittorrent
+    restart: unless-stopped
+    volumes:
+      - ${ARRPATH}qbittorrent/config:/config
+      - ${DESCARGAS}descargas_suite:/downloads
+    env_file:
+      - ./.env
+      - /volume1/docker/docker/synology.env                     # variables synology (PUID, PGID, TZ)
+    #  Variables qbittorrent
+    environment:
+      - WEBUI_PORT=8080
+      - TORRENTING_PORT=6881
+    ports:
+      - "8080:8080"       # Interfaz Web
+      - "6881:6881"       # Puerto TCP para Torrents
+      - "6881:6881/udp"   # Puerto UDP para Torrents
+      
+  # Indexadores
+  prowlarr:
+    container_name: prowlarr
+    image: lscr.io/linuxserver/prowlarr:latest
+    hostname: prowlarr
+    restart: unless-stopped
+    volumes:
+      - ${ARRPATH}prowlarr/config:/config
+      - ${ARRPATH}prowlarr/backup:/data/backup
+      - ${DESCARGAS}descargas_suite:/downloads
+    env_file:
+      - ./.env
+      - /volume1/docker/docker/synology.env                     # variables synology (PUID, PGID, TZ)
+    ports:
+      - "9696:9696"       # Interfaz Web
+
+  jackett:
+    container_name: jackett
+    image: lscr.io/linuxserver/jackett:latest
+    hostname: jackett
+    restart: unless-stopped
+    volumes:
+      - ${ARRPATH}jackett/config:/config
+      - ${DESCARGAS}descargas_suite:/downloads
+    env_file:
+      - ./.env
+      - /volume1/docker/docker/synology.env                     # variables synology (PUID, PGID, TZ)
+    ports:
+      - "9117:9117"       # Interfaz Web
+
+  # Gestión de Medios (Películas y Series)
+  sonarr:
+    container_name: sonarr
+    image: lscr.io/linuxserver/sonarr:latest
+    hostname: sonarr
+    restart: unless-stopped
+    volumes:
+      - ${ARRPATH}sonarr/config:/config
+      - ${ARRPATH}sonarr/backup:/data/backup
+      - ${ARRPATH}sonarr/series:/data/tvshows
+      - ${DESCARGAS}descargas_suite:/downloads
+    env_file:
+      - ./.env
+      - /volume1/docker/docker/synology.env                     # variables synology (PUID, PGID, TZ)
+    ports:
+      - "8989:8989"       # Interfaz Web
+
+  radarr:
+    container_name: radarr
+    image: lscr.io/linuxserver/radarr:latest
+    hostname: radarr
+    restart: unless-stopped
+    volumes:
+      - ${ARRPATH}radarr/config:/config
+      - ${ARRPATH}radarr/peliculas:/data/movies
+      - ${ARRPATH}radarr/backup:/data/backup
+      - ${DESCARGAS}descargas_suite:/downloads
+    env_file:
+      - ./.env
+      - /volume1/docker/docker/synology.env                     # variables synology (PUID, PGID, TZ)
+    ports:
+      - "7878:7878"       # Interfaz Web
+
+  # Servidores de Streaming Multimedia
+  jellyfin:
+    container_name: jellyfin
+    image: lscr.io/linuxserver/jellyfin:latest
+    hostname: jellyfin
+    restart: unless-stopped
+    volumes:
+      - ${ARRPATH}jellyfin/config:/config
+      - ${ARRPATH}radarr/peliculas:/data/movies
+      - ${ARRPATH}sonarr/series:/data/tvshows
+      - /volume2/video/peliculas:/data/peliculas:rw
+      - /volume2/video/series:/data/series:rw
+      - /volume2/music:/data/musica:rw
+    env_file:
+      - ./.env
+      - /volume1/docker/docker/synology.env                     # variables synology (PUID, PGID, TZ)
+    ports:
+      - "8096:8096/tcp"   # Interfaz Web
+      - "7359:7359/udp"   # Descubrimiento automático
+      #- "1900:1900/udp"   # DLNA/UPnP                      # asteriscado por que lo tengo en uso
+
+  plex:
+    container_name: plex_suite
+    image: lscr.io/linuxserver/plex:latest
+    hostname: plex
+    network_mode: host          #El puerto será 32400, entra en IP:32400/web
+    restart: unless-stopped
+    volumes:
+      - ${ARRPATH}plex/config:/config
+      - ${ARRPATH}sonarr/series:/data/tvshows
+      - ${ARRPATH}radarr/peliculas:/data/movies
+      #- /volume2/video:/movies
+    env_file:
+      - ./.env
+      - /volume1/docker/docker/synology.env                     # variables synology (PUID, PGID, TZ)
+    environment:
+      - VERSION=docker
+      # Si quieres que Plex se reclame automáticamente, descomenta y pon tu token:
+      # - PLEX_CLAIM=<TU_PLEX_CLAIM_TOKEN>
