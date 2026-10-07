@@ -1,0 +1,7 @@
+# filtramos ficheros
+*.txt
+docker-compose0.yaml
+
+# filtramos información directorios
+/etc-dnsmasq.d/*
+/etc-pihole/*
