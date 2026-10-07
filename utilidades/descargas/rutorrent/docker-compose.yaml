@@ -1,0 +1,16 @@
+#  Servicio rutorrent
+services:
+  rutorrent:
+    container_name: utilidades-descargas-rutorrent
+    image: ghcr.io/linuxserver/rutorrent
+    restart: unless-stopped
+    volumes:
+      - ./config:/config
+      - ./downloads:/downloads
+    ports:
+      - 81:80                         # puerto web
+      - 4000:5000
+      - 51413:51413
+      - 6881:6881/udp
+    env_file:
+      - /volume1/docker/docker/synology.env                     # variables synology (PUID, PGID, TZ)

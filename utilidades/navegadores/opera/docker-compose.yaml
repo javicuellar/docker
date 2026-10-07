@@ -1,0 +1,17 @@
+#  Servicio navegador Opera
+services:
+  opera:
+    container_name: utilidades-navegador-opera
+    image: lscr.io/linuxserver/opera:latest
+    restart: unless-stopped
+    volumes:
+      - ./config:/config
+    ports:
+      - 3000:3000
+      - 3001:3001
+    shm_size: "1gb"
+    env_file:
+      - /volume1/docker/docker/synology.env           # variables synology (PUID, PGID, TZ)
+    #  definimos variblas de opera
+    environment:
+      - OPERA_CLI=https://www.linuxserver.io/         # optional

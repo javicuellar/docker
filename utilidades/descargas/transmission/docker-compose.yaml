@@ -1,0 +1,16 @@
+#  Servicio transmission  (descarga de torrents)
+services:
+  transmission:
+    container_name: utilidades-desargas-transmission
+    image: lscr.io/linuxserver/transmission:latest
+    restart: unless-stopped
+    volumes:
+      - ./config:/config
+      - /volume2/video/Descargas:/downloads                 # optional
+      - /volume2/video/Descargas_Telegram/torrent:/watch    # optional
+    ports:
+      - 9091:9091                   # puerto web
+      - 51413:51413
+      - 51413:51413/udp
+    env_file:
+      - /volume1/docker/docker/synology.env                     # variables synology (PUID, PGID, TZ)
