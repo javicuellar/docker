@@ -1,128 +1,121 @@
-# docker
+# Proyectos en E:\
 
-Repositorio con las definiciones **docker-compose** de los servicios desplegados en el NAS Synology. Cada proyecto vive en su propia carpeta con un `docker-compose.yaml` independiente, para poder desplegarlo y mantenerlo por separado desde Container Manager / Portainer.
+Índice de los proyectos y recursos de esta unidad. La mayoría están pensados para ejecutarse en Docker sobre el NAS Synology.
 
-## Estructura del repositorio
+| Carpeta | Contenido |
+|---|---|
+| [docker/](docker/) | Definiciones `docker-compose` de los servicios del NAS |
+| [python/](python/) | Proyectos y apps web en Python |
+| [python_bd/](python_bd/) | Bases de datos SQLite compartidas |
+| [python_config/](python_config/) | Credenciales, certificados SSL y `config.env` (**no compartir**) |
+| [telegram/](telegram/) | Bot de Telegram para torrents |
+| [Leeme Docker.md](Leeme%20Docker.md) | Comandos básicos de Docker en el NAS (SSH, crear contenedores) |
+| [NAS Docker.md](NAS%20Docker.md) | Enlaces a los proyectos publicados en GitHub |
 
-```
-docker/
-├── synology.env                    # Variables comunes del NAS (PUID, PGID, TZ, idioma)
-├── multimedia/                     # Servicios de gestión y consumo multimedia
-│   ├── calibreweb/
-│   ├── calibreweb-automated/
-│   ├── jellyfin/
-│   ├── multimedia_suite/           # Stack *arr completo (descargas, indexadores, streaming)
-│   ├── plex/
-│   └── tinymediamanager/
-└── utilidades/                     # Herramientas de soporte y utilidades generales
-    ├── duplicati/
-    └── nametag/
-```
+---
 
-Cada carpeta de proyecto sigue el mismo patrón:
+## 📈 Alertas de bolsa por Telegram
 
-- `docker-compose.yaml`: definición del/los servicio(s).
-- `*.env` (no versionado): variables privadas propias del proyecto, referenciadas desde el `docker-compose.yaml` junto con `synology.env`.
-- Carpetas de datos (`config`, `libreria`, `watch`, `db`, `backups`, etc.): volúmenes persistentes, no versionados.
+**Proyecto: [python/11_Monitor_alertas/](python/11_Monitor_alertas/)**
 
-> Los ficheros `.env`, certificados (`*.pem`) y credenciales (`*.json`) están excluidos del control de versiones (ver [.gitignore](.gitignore)). Deben crearse manualmente en el NAS antes de levantar cada stack.
+Comprueba periódicamente el precio de acciones y ETFs (con `yfinance`) y avisa por **Telegram** y/o **email** cuando un valor sube o baja más del porcentaje configurado respecto al cierre del día hábil anterior.
 
-## Inventario de proyectos
+- Panel de administración Streamlit en `http://localhost:8501`: símbolos y umbrales, planificador (intervalo, horario, días), configuración de Telegram (token y chat ID), email e historial de alertas.
+- Configuración e historial guardados en SQLite (`data/monitor.db`).
+- Arranque: `python monitor_acciones/arrancar.py`. Opciones: `--solo-admin`, `--solo-monitor`, `--una-vez` (para cron) y `--puerto`.
+- La lógica de Telegram está en `monitor_acciones/stock_monitor/notifications.py`.
 
-| Proyecto | Categoría | Imagen | Puerto | Descripción |
-|---|---|---|---|---|
-| [calibreweb](multimedia/calibreweb/) | Multimedia | `linuxserver/calibre-web` | 8083 | Servidor web de biblioteca de libros Calibre. |
-| [calibreweb-automated](multimedia/calibreweb-automated/) | Multimedia | `crocodilestick/calibre-web-automated` | 8083 | Calibre-Web con ingesta automática: los libros depositados en `watch` se procesan y añaden solos a la biblioteca. |
-| [jellyfin](multimedia/jellyfin/) | Multimedia | `linuxserver/jellyfin` | 8096 | Servidor multimedia libre para películas, series y música, con transcodificación por hardware Intel Quick Sync. |
-| [multimedia_suite](multimedia/multimedia_suite/) | Multimedia | `linuxserver/qbittorrent` + `prowlarr` + `jackett` + `sonarr` + `radarr` + `jellyfin` + `plex` | 8080, 9696, 9117, 8989, 7878, 8096, 32400 (host) | Suite multimedia completa: descarga por torrent, indexadores, gestión automática de películas/series y servidores de streaming. |
-| [plex](multimedia/plex/) | Multimedia | `linuxserver/plex` | 32400 (host) | Servidor multimedia Plex sobre la videoteca del NAS, con transcodificación por hardware. |
-| [tinymediamanager](multimedia/tinymediamanager/) | Multimedia | `romancin/tinymediamanager:latest-v4` | 5800 (web), 5900 (VNC) | Gestor de metadatos (NFO, carátulas, fanart) para películas y series. |
-| [duplicati](utilidades/duplicati/) | Utilidades | `linuxserver/duplicati` | 8200 | Copias de seguridad programadas de las carpetas indicadas en `source`. |
-| [nametag](utilidades/nametag/) | Utilidades | `mattogodoy/nametag` + `postgres` + `redis` | 3753 | Aplicación de etiquetado de contactos, con base de datos PostgreSQL, caché Redis y tarea cron de recordatorios diarios. |
+---
 
-## Detalle de proyectos
+## 🐳 docker/
 
-### 📚 [multimedia/calibreweb](multimedia/calibreweb/)
-Instancia clásica de Calibre-Web sobre la biblioteca existente en `/volume2/libros`. Incluye el mod `universal-calibre` para conversión de formatos.
+Cada servicio tiene su carpeta con su `docker-compose.yaml` y su `.env`. `synology.env` guarda las variables comunes (PUID, PGID, TZ). Más detalles en [docker/README.md](docker/README.md).
 
-### 📚 [multimedia/calibreweb-automated](multimedia/calibreweb-automated/)
-Evolución de Calibre-Web que añade ingesta automática de libros: cualquier fichero copiado en `watch/` se procesa y se mueve a `libreria/` según la configuración de CWA. Sustituye progresivamente a `calibreweb`.
+### multimedia/
+| Servicio | Descripción |
+|---|---|
+| calibreweb / calibreweb-automated | Biblioteca de libros electrónicos |
+| jellyfin / plex | Servidores multimedia |
+| multimedia_suite | Stack completo: qBittorrent, Jackett, Prowlarr, Radarr, Sonarr, Jellyfin, Plex |
+| tinymediamanager | Gestión de metadatos de películas y series |
 
-- `config/`: configuración y ajustes de usuario de CWA.
-- `watch/`: carpeta de entrada (ingest); los ficheros se eliminan tras procesarse.
-- `libreria/`: biblioteca Calibre resultante.
-- `plugins/`: plugins de Calibre opcionales.
+### telegram/
+| Bot | Descripción |
+|---|---|
+| controller-bot | Control de contenedores Docker desde Telegram (`dgongut/docker-controller-bot`) |
+| torrent-controller-bot | Control de descargas torrent (`dgongut/torrent-controller-bot`) |
+| dropbot | Descarga de archivos enviados al bot (`dgongut/dropbot`) |
+| intrubot | Avisos de intrusión/dispositivos en la red (`dgongut/intrubot`) |
+| cumplebot | Recordatorio de cumpleaños y precio de Bitcoin |
+| torrentbot | Bot.Torrent v4 en Python |
+| prueba | Imagen propia de pruebas |
 
-### 🎬 [multimedia/jellyfin](multimedia/jellyfin/)
-Servidor multimedia de código abierto. Expone la interfaz web en el puerto 8096 y usa la GPU Intel (`/dev/dri`) para transcodificación por hardware, con el mod `jellyfin-opencl-intel` para tone mapping vía OpenCL.
+### utilidades/
+| Servicio | Descripción |
+|---|---|
+| MariaDB | Notas de la base de datos MariaDB |
+| Selenium-Chrome | Navegador Chrome remoto para scraping |
+| descargas | rutorrent y transmission |
+| duplicati | Copias de seguridad |
+| metube | Descarga de vídeos de YouTube |
+| nametag | Nametag con base de datos y Redis |
+| navegadores | Firefox y Opera en contenedor |
+| pihole | Bloqueo de publicidad por DNS |
+| wireguard | VPN |
 
-- `config/`: configuración, metadatos y base de datos de Jellyfin.
-- Bibliotecas montadas en `/data`:
-  - `/volume2/video/peliculas` → `/data/peliculas`
-  - `/volume2/video/series` → `/data/series`
-  - `/volume2/music` → `/data/musica`
-- `pruebas/`: variantes del `docker-compose.yaml` usadas durante las pruebas de configuración.
+### ejemplos/
+Plantillas de `Dockerfile` y `docker-compose` (Python, redes, etc.).
 
-### 🧩 [multimedia/multimedia_suite](multimedia/multimedia_suite/)
-Stack completo de automatización multimedia en un único `docker-compose.yaml`. Las rutas base se parametrizan en el `.env` del proyecto:
+---
 
-- `ARRPATH`: ruta base de configuración y bibliotecas de la suite.
-- `DESCARGAS`: ruta base donde se crea la carpeta compartida `descargas_suite` (montada en `/downloads` en todos los servicios de descarga y gestión).
+## 🐍 python/
 
-| Servicio | Contenedor | Puerto | Función |
-|---|---|---|---|
-| qBittorrent | `qbittorrent` | 8080 (web), 6881 TCP/UDP | Cliente torrent. |
-| Prowlarr | `prowlarr` | 9696 | Gestor centralizado de indexadores para Sonarr/Radarr. |
-| Jackett | `jackett` | 9117 | Proxy de indexadores (alternativa/complemento a Prowlarr). |
-| Sonarr | `sonarr` | 8989 | Gestión y descarga automática de series → `sonarr/series`. |
-| Radarr | `radarr` | 7878 | Gestión y descarga automática de películas → `radarr/peliculas`. |
-| Jellyfin | `jellyfin` | 8096, 7359/udp | Streaming de las bibliotecas de la suite (`/data/movies`, `/data/tvshows`) y de la videoteca/música del NAS (`/data/peliculas`, `/data/series`, `/data/musica`). |
-| Plex | `plex_suite` | 32400 (host) | Streaming de las bibliotecas de Sonarr/Radarr, en `network_mode: host`. |
+Entorno común: `crear_entorno.bat`, `activar_entorno.bat`, `instalar_requirements.bat`, `lanzador.sh`, `Dockerfile` y `docker-compose.yaml`. La configuración y las credenciales están en `config/` y `config.env`.
 
-- Cada servicio guarda su configuración en `<servicio>/config/`; Prowlarr, Sonarr y Radarr además hacen copias en `<servicio>/backup/`.
-- El puerto DLNA 1900/udp de Jellyfin está comentado por estar ya en uso en el NAS.
-- ⚠️ Los puertos 8096 y 32400 coinciden con los de los proyectos independientes [jellyfin](multimedia/jellyfin/) y [plex](multimedia/plex/): no deben ejecutarse a la vez que la suite.
-- Para reclamar Plex automáticamente, descomentar `PLEX_CLAIM` con un token válido.
+### Proyectos numerados
+| Carpeta | Descripción |
+|---|---|
+| 01_appweb_flask_SQLite | Primera app Flask con login y SQLite (base de AppWeb_alertas) |
+| 01_appweb_flask_SQLite_HTTPS | Igual que la anterior, servida por HTTPS |
+| 02_appweb_flask_upload_file | Flask con log rotativo y subida de ficheros desde PC/móvil |
+| 03_selenium-scrapper | Scraping con Selenium + Chrome en contenedores (alerta de esquí) |
+| 04_App_tienda_videojuegos | Tienda de videojuegos en Flask (de josedom24) |
+| 05_appweb_flet | Ejemplo con Flet (no funciona: falta `flet_desktop`) |
+| 06_AppWeb_alertas | App Flask de cartera de activos con alertas por **email** (Google Sheets, Madrid Digital, ficheros) |
+| 08_appweb_streamlit | Ejemplo mínimo de Streamlit con HTTPS |
+| 09_App_Finanzas | App Streamlit de finanzas: movimientos, cartera y resumen del IRPF |
+| 10_find_video_duplicates | Buscador de vídeos duplicados (Streamlit) |
+| **11_Monitor_alertas** | **Monitor de acciones con alertas por Telegram/email** (ver arriba) |
+| 12-variables-entorno | Ejemplo de configuración mediante variables de entorno |
 
-### 🎞️ [multimedia/plex](multimedia/plex/)
-Servidor multimedia Plex. Funciona en `network_mode: host` (interfaz web en `http://<nas>:32400/web`) para facilitar el descubrimiento DLNA/GDM en la red local, y usa `/dev/dri` para transcodificación por hardware (requiere Plex Pass).
+### Proyectos/
+| Carpeta | Descripción |
+|---|---|
+| 07_Appweb_contactos | App web de gestión de contactos con alertas |
+| 12_pocha | La Pocha: contador de puntos del juego de cartas (Streamlit, SQLite, PDF) |
+| 17-contactos | Gestión de contactos en Flask (eventos, relaciones, etiquetas, importación de Google Contacts) |
+| 19-panel-javi | Panel estático con Google Calendar y TickTick que se regenera cada hora (generador + nginx) |
+| 21-gym | Registro de sesiones de gimnasio (Flask + SQLite) |
+| 22-bitacora | Enlaces e información guardados desde el correo, clasificados por temas |
 
-- `config/`: configuración y base de datos de Plex.
-- `/volume2/video` → `/movies`: videoteca del NAS.
-- `docker-compose (anterior).yaml`: versión previa del compose, conservada como referencia.
+### Otras carpetas
+| Carpeta | Descripción |
+|---|---|
+| Proyectos (ant) | Versiones anteriores de proyectos (Finanzas, Alertas, Nametag, CineStream…) |
+| Herramientas | Módulos comunes: variables, mail (Gmail), scraping, sheet (Google Sheets), BD SQLite/MySQL |
+| Python | Repositorio de formación: cursos, Data Science, ejemplos y librerías |
+| Documentos_Ayuda | PDFs, libros y tutoriales (Docker, Git, Markdown, Python, VS Code) |
+| Tutorial_git | Tutorial de Git con ejemplos |
+| Repositorios_Clonados | Repositorios de terceros |
+| bd | Bases de datos (SQLite, DES) y logs |
+| venv | Entorno virtual de Python |
 
-### 🏷️ [multimedia/tinymediamanager](multimedia/tinymediamanager/)
-tinyMediaManager v4 para organizar y completar metadatos (ficheros NFO, carátulas, fanart, renombrado) de películas y series. Es una aplicación de escritorio servida por navegador (`http://<nas>:5800`) o por cliente VNC (puerto 5900).
+---
 
-- `config/`: configuración y base de datos de tinyMediaManager.
-- `/volume2/video/peliculas/clara` → `/media`: carpeta de medios gestionada.
-- `.env`: `USER_ID` y `GROUP_ID` con los que se ejecuta la aplicación.
+## 📲 telegram/
 
-### 💾 [utilidades/duplicati](utilidades/duplicati/)
-Herramienta de copias de seguridad cifradas y programadas.
+- **bot-torrent**: `Bot.torrent.v4.py` + `config.ini`. Bot de Telegram para gestionar torrents (es la misma versión que `docker/telegram/torrentbot`).
 
-- `source/`: origen de los datos a respaldar.
-- `backups/`: destino local de las copias.
-- `config/`: configuración de trabajos de backup.
+---
 
-### 🏷️ [utilidades/nametag](utilidades/nametag/)
-Stack de 4 servicios:
-
-- `db`: PostgreSQL 18 con healthcheck.
-- `redis`: caché/cola con contraseña.
-- `nametag`: aplicación principal (puerto 3753 → 3000).
-- `cron`: lanza diariamente a las 8:00 una llamada al endpoint de recordatorios de la app.
-
-## Requisitos previos
-
-1. Synology NAS con Docker / Container Manager.
-2. Fichero [`synology.env`](synology.env) en la raíz con `PUID`, `PGID`, `TZ`, `LANGUAGE` y `LANG`.
-3. Un fichero `.env` privado por proyecto (referenciado en cada `docker-compose.yaml`) con las credenciales y variables específicas del servicio.
-
-## Despliegue
-
-Desde la carpeta del proyecto deseado:
-
-```bash
-docker compose up -d
-```
+> ⚠️ `python_config/`, `python/config/` y otras carpetas contienen credenciales (`Credenciales.json`, `*.pem`, `*.env`). No las subas a repositorios públicos.
