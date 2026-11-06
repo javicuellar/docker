@@ -1,0 +1,15 @@
+services:
+  metube:
+    container_name: utilidades-metube
+    image: alexta69/metube
+    restart: unless-stopped
+    volumes:
+      - /volume2/video/Descargas:/downloads
+      - ./cookies:/cookies
+    ports:
+      - "8081:8081"
+    env_file:
+      - /volume1/docker/docker/synology.env           # variables synology (PUID, PGID, TZ)
+    #  definimos variblas de metube
+    environment:
+      - YTDL_OPTIONS={"cookiefile":"/cookies/cookies.txt"}

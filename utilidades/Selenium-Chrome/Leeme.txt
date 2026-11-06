@@ -1,0 +1,15 @@
+#############################################################################################
+
+Realizadas las siguientes pruebas, funcionan "algunas veces".
+
+  1) Proyecto con dos contenedores, arrancando a la vez.
+        selenium-chrome + python-scraper 
+        
+    aunque he puesto retardos para esperar a que python espere a que esté preparado selenium.
+
+  2) Proyecto selenium-chrome con su contendor vs python-prueba
+
+    funciona a veces, he probado con red bridge vs host de python, y incluyendo los dos en host.
+
+
+También he probado a lanzar dos, el prueba (simple conexión) + prueba1 con la actualización a sheets.

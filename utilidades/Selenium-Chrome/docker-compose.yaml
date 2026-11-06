@@ -1,0 +1,15 @@
+services:
+  selenium-standalone-chrome:
+    container_name: 'selenium-chrome'
+    
+    # Si no se crea con build, se puede hacer con image
+    image: 'selenium/standalone-chrome:latest'
+    
+    # Usamos la red del host
+    network_mode: host
+
+    ports:
+      - 4444:4444
+      - 7900:7900
+    
+    shm_size: 2g

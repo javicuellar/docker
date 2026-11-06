@@ -1,0 +1,16 @@
+#  Servicio Wireguard
+services:
+  wireguard:
+    container_name: utilidades-wireguard
+    image: lscr.io/linuxserver/wireguard:latest
+    restart: unless-stopped
+    volumes:
+      - ./config:/config
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - 51820:51820/udp
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
+    env_file:
+      - /volume1/docker/docker/synology.env                 # variables synology (PUID, PGID, TZ)

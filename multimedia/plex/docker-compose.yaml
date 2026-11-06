@@ -5,12 +5,12 @@ services:
     image: 'linuxserver/plex:latest'
     restart: unless-stopped
     volumes:
-      - ./config:/config
-      - /volume2/video:/movies
-      #- '/volume2/video:/tv'
+      - './config:/config'
+      - '/volume2/video:/movies'
+      # - '/volume2/video:/tv'
     env_file:
       - /volume1/docker/docker/synology.env                     # variables synology (PUID, PGID, TZ)
-    #  Variables Jellyfin
+    #  Variables plex
     environment:
       - VERSION=docker
     devices:
