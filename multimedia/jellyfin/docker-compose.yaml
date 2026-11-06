@@ -8,7 +8,7 @@ services:
        - ./config:/config
        - /volume2/video:/data/peliculas:rw
        # - /volume2/video/series:/data/series:rw
-       - /volume2/music:/data/musica:rw
+       - /volume2/multimedia/musica:/data/musica:rw
     env_file:
       - /volume1/docker/docker/synology.env                     # variables synology (PUID, PGID, TZ)
     #  Variables Jellyfin
