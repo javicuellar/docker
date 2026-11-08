@@ -5,9 +5,9 @@ services:
     image: 'python:3.13.2'                                # version 21/03/2025
     restart: unless-stopped
     volumes:
-      - ./src:/app
+      - ./src:/src
     env_file:
       #  Variables Cumple Bot
       - /volume1/docker/docker/telegram/cumplebot.env      # variables privadas Cumple Bot
     network_mode: bridge	                                 # No es necesario ponerlo
-    command: /bin/sh /app/start.sh
+    command: /bin/sh /src/start.sh

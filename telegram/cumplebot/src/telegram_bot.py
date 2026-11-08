@@ -39,6 +39,7 @@ BOT_TOKEN = os.getenv('BOT_TOKEN')
 if not BOT_TOKEN:
     logger.error("No bot token provided. Set the BOT_TOKEN environment variable.")
     exit(1)
+print(f"Bot token loaded: {BOT_TOKEN}...")
 
 COINGECKO_API_KEY = os.getenv('COINGECKO_API_KEY')
 if not COINGECKO_API_KEY:
@@ -51,7 +52,7 @@ if not AUTHORIZED_USER_ID:
 # Initialize the bot
 bot = telebot.TeleBot(BOT_TOKEN)
 
-BIRTHDAYS_FILE = '/app/birthdays.json'
+BIRTHDAYS_FILE = '/src/birthdays.json'
 BITCOIN_CACHE = {'data': None, 'last_updated': None}
 MEMPOOL_CACHE = {'data': None, 'last_updated': None}
 LAST_NOTIFIED_PRICE = {'price': 0, 'thresholds': [], 'notified': []}
@@ -747,9 +748,11 @@ if __name__ == "__main__":
     
     # Start the regular threads
     threading.Thread(target=check_next_birthday, daemon=True).start()
+    
     #  apago los avisos de bitcoin para que no me molesten, pero dejo el hilo activo para que siga funcionando el bot
     # threading.Thread(target=check_bitcoin_price, daemon=True).start()
     
+
     # Main polling loop with backoff
     while True:
         try:
