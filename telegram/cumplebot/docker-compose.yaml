@@ -1,0 +1,13 @@
+#  Servicio telegram - Cumple Bot
+services:
+  cumple-bot:
+    container_name: telegram-cumplebot
+    image: 'python:3.13.2'                                # version 21/03/2025
+    restart: unless-stopped
+    volumes:
+      - ./src:/app
+    env_file:
+      #  Variables Cumple Bot
+      - /volume1/docker/docker/telegram/cumplebot.env      # variables privadas Cumple Bot
+    network_mode: bridge	                                 # No es necesario ponerlo
+    command: /bin/sh /app/start.sh

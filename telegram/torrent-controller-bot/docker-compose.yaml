@@ -1,0 +1,15 @@
+#  Servicio telegram - Torrent Controller Bot
+services:
+  torrent-controller-bot:
+    container_name: telegram-torrent-controller-bot
+    image: dgongut/torrent-controller-bot:latest
+    restart: always
+    volumes:
+      - ./config:/config                                            # Ajustes persistentes del bot
+    env_file:
+    #  Variables Torrent Controller Bot
+      - /volume1/docker/docker/telegram/torrent-controller-bot.env  # variables privadas Controller Bot (TELEGRAM_TOKEN, TELEGRAM_ADMIN, etc)
+    network_mode: host
+    tty: true
+
+#  Ver instrucciones:  https://github.com/dgongut/torrent-controller-bot

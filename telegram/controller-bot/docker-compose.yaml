@@ -1,0 +1,16 @@
+#  Servicio telegram - Controller Bot
+services:
+  controller-bot:
+    container_name: telegram-controller-bot
+    image: dgongut/docker-controller-bot:latest
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock 			    # NO CAMBIAR
+      - ./programaciones:/app/config						    # CAMBIAR LA PARTE IZQUIERDA
+      #- ~/.docker/config.json:/root/.docker/config.json        # Solo si se requiere iniciar sesión en algún registro
+    env_file:
+      - /volume1/docker/docker/synology.env                     # variables synology (PUID, PGID, TZ)
+    #  Variables Docker Controller Bot
+      - /volume1/docker/docker/telegram/controller-bot.env      # variables privadas Controller Bot (TELEGRAM_TOKEN, TELEGRAM_ADMIN, etc)
+    network_mode: host
+    # tty: true

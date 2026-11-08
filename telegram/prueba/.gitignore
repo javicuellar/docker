@@ -1,0 +1,8 @@
+# filtramos varialbes de entorno
+**.env
+
+# filtramos certificados
+*.pem
+
+# Certificado Google
+*.json

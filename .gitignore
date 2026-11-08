@@ -6,8 +6,3 @@
 
 # Certificado Google
 *.json
-
-
-# vamos actualizando a git poco a poco
-/telegram/*
-.gitignore

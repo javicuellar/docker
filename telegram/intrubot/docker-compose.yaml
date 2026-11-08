@@ -1,0 +1,15 @@
+#  Servicio telegram - Intru Bot
+services:
+    intrubot:
+        container_name: telegram-intrubot
+        image: dgongut/intrubot:latest
+        restart: always
+        volumes:
+            - ./datos:/app/data                                 # CAMBIAR LA PARTE IZQUIERDA
+        env_file:
+            #  Variables intru Bot
+            - /volume1/docker/docker/telegram/intrubot.env      # variables privadas intru Bot
+        network_mode: host
+        tty: true
+
+# ver proyecto hecho en Python:  https://github.com/dgongut/intrubot

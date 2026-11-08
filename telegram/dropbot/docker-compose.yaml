@@ -1,0 +1,24 @@
+#  Servicio telegram - Drop Bot
+services:
+  dropbot:
+    container_name: telegram-dropbot
+    image: dgongut/dropbot:latest
+    restart: unless-stopped
+    volumes:
+      - ./config:/config
+      - /volume2/video/Descargas_Telegram:/downloads
+      
+      - /volume2/video/Descargas_Telegram/audio:/audio
+      - /volume2/video/Descargas_Telegram/video:/video
+      - /volume2/video/Descargas_Telegram/foto:/photo
+      - /volume2/video/Descargas_Telegram/torrent:/torrent
+      - /volume2/video/Descargas_Telegram/ebook:/ebook
+      - /volume2/video/Descargas_Telegram/video_url:/url_video
+      - /volume2/video/Descargas_Telegram/audio_url:/url_audio
+    env_file:
+    #  Variables Drop Bot
+      - /volume1/docker/docker/telegram/dropbot.env             # variables privadas Drop Bot (TELEGRAM_TOKEN, TELEGRAM_ADMIN, etc)
+    network_mode: host
+    tty: true
+
+# ver proyecto hecho en Python: https://github.com/dgongut/dropbot
