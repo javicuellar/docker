@@ -9,6 +9,5 @@
 
 
 # vamos actualizando a git poco a poco
-/ejemplos/*
 /telegram/*
 .gitignore

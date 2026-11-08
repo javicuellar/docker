@@ -1,0 +1,11 @@
+#  Servicio telegram-prueba - prueba de bot
+services:
+  telegram-prueba:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    restart: unless-stopped
+    volumes:
+      - ./src:/app
+    tty: true
+    command: python3 /app/prueba.py
